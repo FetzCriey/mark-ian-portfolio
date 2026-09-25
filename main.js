@@ -2,283 +2,246 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.m
 
 const mobile = window.matchMedia('(max-width: 700px)').matches;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Navigation
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
+menuToggle?.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(open));
+});
+nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menuToggle?.setAttribute('aria-expanded', 'false');
+}));
+
+// Section reveals
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+// Subtle cursor light
+const spot = document.querySelector('.cursor-spot');
+window.addEventListener('pointermove', (event) => {
+  if (!spot || mobile) return;
+  spot.style.left = `${event.clientX}px`;
+  spot.style.top = `${event.clientY}px`;
+}, { passive: true });
+
+// 3D electronics identity object
 const container = document.getElementById('three-scene');
 const fallback = document.querySelector('.scene-fallback');
 
-// ---------- Navigation ----------
-const menuButton = document.querySelector('.menu-button');
-const nav = document.querySelector('.site-nav');
-menuButton?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(open));
-});
-nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuButton?.setAttribute('aria-expanded', 'false');
-}));
-
-// ---------- Reveal on scroll ----------
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('is-visible');
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// ---------- Soft cursor glow ----------
-const glow = document.querySelector('.cursor-glow');
-window.addEventListener('pointermove', (event) => {
-  if (!glow || mobile) return;
-  glow.style.left = `${event.clientX}px`;
-  glow.style.top = `${event.clientY}px`;
-}, { passive: true });
-
-// ---------- Three.js 3D hero ----------
 if (!container || !window.WebGLRenderingContext) {
   if (fallback) fallback.style.display = 'grid';
 } else {
   try {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-    camera.position.set(0, 1.6, mobile ? 10.2 : 9.1);
+    camera.position.set(0, 0.3, mobile ? 9.5 : 8.6);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: !mobile, alpha: true, powerPreference: 'high-performance' });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.25 : 1.6));
-    renderer.setSize(container.clientWidth, container.clientHeight, false);
+    const renderer = new THREE.WebGLRenderer({
+      antialias: !mobile,
+      alpha: true,
+      powerPreference: 'high-performance'
+    });
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, mobile ? 1.2 : 1.6));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.shadowMap.enabled = !mobile;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
-    const COLORS = {
-      navy: 0x1f3556,
-      orange: 0xe9783f,
-      yellow: 0xe6b653,
-      green: 0x6f8f72,
-      cream: 0xf4efe6,
-      ink: 0x25262b,
-      white: 0xfffdf8,
-      wood: 0xc99262,
-      metal: 0x8b8f95
+    const C = {
+      ink: 0x171717,
+      paper: 0xf1eee6,
+      blue: 0x2855d9,
+      red: 0xf05a37,
+      acid: 0xc9e65b,
+      copper: 0xb97644,
+      grey: 0x77736a
     };
 
     const matte = (color, roughness = 0.72) => new THREE.MeshStandardMaterial({ color, roughness, metalness: 0.05 });
-    const metal = (color) => new THREE.MeshStandardMaterial({ color, roughness: 0.35, metalness: 0.55 });
+    const metal = (color) => new THREE.MeshStandardMaterial({ color, roughness: 0.3, metalness: 0.72 });
 
     const world = new THREE.Group();
-    world.rotation.set(-0.08, -0.16, 0);
+    world.rotation.set(-0.05, -0.25, -0.03);
     scene.add(world);
 
-    // Platform
-    const platform = new THREE.Mesh(
-      new THREE.CylinderGeometry(3.65, 3.9, 0.38, mobile ? 40 : 64),
-      matte(COLORS.cream)
-    );
-    platform.position.y = -2.45;
-    platform.receiveShadow = true;
-    world.add(platform);
+    // Main circuit slab
+    const boardGroup = new THREE.Group();
+    boardGroup.rotation.set(-0.2, 0.25, -0.11);
+    world.add(boardGroup);
 
-    const platformAccent = new THREE.Mesh(
-      new THREE.TorusGeometry(3.12, 0.08, 10, 80),
-      matte(COLORS.orange)
-    );
-    platformAccent.rotation.x = Math.PI / 2;
-    platformAccent.position.y = -2.21;
-    world.add(platformAccent);
+    const board = new THREE.Mesh(new THREE.BoxGeometry(4.35, 2.85, 0.22), matte(C.blue, 0.58));
+    board.castShadow = true;
+    boardGroup.add(board);
 
-    // Desk
-    const desk = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.28, 1.55), matte(COLORS.wood));
-    desk.position.set(0.35, -0.82, 0);
-    desk.castShadow = true;
-    world.add(desk);
+    // Board edge stripe
+    const edge = new THREE.Mesh(new THREE.BoxGeometry(4.48, 0.16, 0.29), matte(C.red));
+    edge.position.set(0, -1.37, 0.03);
+    boardGroup.add(edge);
 
-    [-1.38, 1.95].forEach(x => {
-      const leg = new THREE.Mesh(new THREE.BoxGeometry(0.18, 1.7, 0.18), metal(COLORS.ink));
-      leg.position.set(x, -1.72, 0);
-      leg.castShadow = true;
-      world.add(leg);
+    // Large processor
+    const chip = new THREE.Mesh(new THREE.BoxGeometry(1.25, 1.12, 0.28), metal(C.ink));
+    chip.position.set(0.22, 0.05, 0.2);
+    chip.castShadow = true;
+    boardGroup.add(chip);
+
+    const chipTop = new THREE.Mesh(new THREE.BoxGeometry(0.78, 0.66, 0.04), matte(C.acid));
+    chipTop.position.set(0.22, 0.05, 0.365);
+    boardGroup.add(chipTop);
+
+    // Processor pins
+    const pinMat = metal(C.copper);
+    const pinCount = mobile ? 9 : 14;
+    for (let i = 0; i < pinCount; i++) {
+      const y = -0.48 + i * (0.96 / Math.max(pinCount - 1, 1));
+      [-0.76, 0.76].forEach((x) => {
+        const pin = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.035, 0.035), pinMat);
+        pin.position.set(0.22 + x, y + 0.05, 0.34);
+        boardGroup.add(pin);
+      });
+    }
+
+    // Small modules
+    const modules = [
+      [-1.45, 0.75, 0.52, 0.33, C.acid],
+      [-1.35, -0.15, 0.72, 0.22, C.ink],
+      [-1.55, -0.78, 0.42, 0.42, C.red],
+      [1.45, 0.78, 0.62, 0.28, C.paper],
+      [1.58, 0.12, 0.38, 0.62, C.ink],
+      [1.34, -0.72, 0.75, 0.25, C.acid]
+    ];
+    modules.forEach(([x, y, w, h, color]) => {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.12), matte(color));
+      m.position.set(x, y, 0.22);
+      boardGroup.add(m);
     });
 
-    // Monitor
-    const monitorGroup = new THREE.Group();
-    monitorGroup.position.set(0.55, 0.34, -0.08);
-    world.add(monitorGroup);
+    // Circuit traces
+    const traceMat = new THREE.LineBasicMaterial({ color: C.paper, transparent: true, opacity: 0.62 });
+    const traceSets = [
+      [[-1.9,1.05],[-.85,1.05],[-.85,.55],[-.25,.55]],
+      [[1.95,-1.0],[1.0,-1.0],[1.0,-.5],[.72,-.5]],
+      [[-1.95,-.38],[-.75,-.38],[-.75,-.7],[-.2,-.7]],
+      [[1.88,.43],[1.12,.43],[1.12,.12],[.86,.12]]
+    ];
+    traceSets.forEach((points) => {
+      const geometry = new THREE.BufferGeometry().setFromPoints(points.map(([x,y]) => new THREE.Vector3(x,y,.36)));
+      boardGroup.add(new THREE.Line(geometry, traceMat));
+    });
 
-    const monitorBody = new THREE.Mesh(new THREE.BoxGeometry(2.55, 1.6, 0.16), matte(COLORS.ink, 0.5));
-    monitorBody.castShadow = true;
-    monitorGroup.add(monitorBody);
-
-    const screen = new THREE.Mesh(
-      new THREE.PlaneGeometry(2.28, 1.34),
-      new THREE.MeshBasicMaterial({ color: COLORS.navy })
+    // Cable looping around the board
+    const cableCurve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(-2.8, 1.7, -0.7),
+      new THREE.Vector3(-3.25, 0.4, 0.5),
+      new THREE.Vector3(-2.65, -1.8, 0.8),
+      new THREE.Vector3(-0.4, -2.5, -0.4),
+      new THREE.Vector3(2.35, -2.0, -0.8),
+      new THREE.Vector3(3.05, -0.4, 0.55),
+      new THREE.Vector3(2.65, 1.3, 0.85)
+    ]);
+    const cable = new THREE.Mesh(
+      new THREE.TubeGeometry(cableCurve, mobile ? 70 : 110, 0.085, 10, false),
+      matte(C.ink, 0.6)
     );
-    screen.position.z = 0.086;
-    monitorGroup.add(screen);
+    cable.castShadow = true;
+    world.add(cable);
 
-    // Screen code bars
-    const codeGroup = new THREE.Group();
-    codeGroup.position.z = 0.092;
-    monitorGroup.add(codeGroup);
-    const barColors = [COLORS.orange, COLORS.yellow, COLORS.white, COLORS.green];
-    for (let i = 0; i < 10; i++) {
-      const width = 0.35 + ((i * 17) % 100) / 100 * 1.35;
-      const bar = new THREE.Mesh(
-        new THREE.PlaneGeometry(width, 0.055),
-        new THREE.MeshBasicMaterial({ color: barColors[i % barColors.length] })
-      );
-      bar.position.set(-0.78 + width / 2, 0.45 - i * 0.1, 0);
-      codeGroup.add(bar);
+    // Connector head
+    const connector = new THREE.Group();
+    connector.position.set(2.72, 1.35, 0.84);
+    connector.rotation.z = -0.6;
+    world.add(connector);
+    const plugBody = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.38, 0.28), matte(C.red));
+    connector.add(plugBody);
+    const plugTip = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.18, 0.19), metal(C.ink));
+    plugTip.position.x = 0.45;
+    connector.add(plugTip);
+
+    // Floating orb and rings â motion anchor
+    const signal = new THREE.Group();
+    signal.position.set(-2.2, 1.45, 1.0);
+    world.add(signal);
+    const orb = new THREE.Mesh(new THREE.IcosahedronGeometry(0.34, 1), metal(C.ink));
+    signal.add(orb);
+    const ring1 = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.035, 8, 48), matte(C.acid));
+    ring1.rotation.x = 1.15;
+    signal.add(ring1);
+    const ring2 = new THREE.Mesh(new THREE.TorusGeometry(0.82, 0.027, 8, 48), matte(C.red));
+    ring2.rotation.y = 0.95;
+    signal.add(ring2);
+
+    // Floating labels / paper chips
+    const floaters = [];
+    const labelCount = mobile ? 3 : 5;
+    for (let i = 0; i < labelCount; i++) {
+      const g = new THREE.Group();
+      const plate = new THREE.Mesh(new THREE.BoxGeometry(0.7 + (i % 2) * .22, 0.38, 0.045), matte(i % 2 ? C.paper : C.acid));
+      g.add(plate);
+      const dot = new THREE.Mesh(new THREE.SphereGeometry(0.055, 10, 10), matte(C.red));
+      dot.position.set(-0.24, 0, 0.05);
+      g.add(dot);
+      g.position.set(-2.8 + i * 1.35, 2.0 - (i % 2) * .45, -1.0 + (i % 3) * .35);
+      g.rotation.set(.1 * i, -.12 * i, -.12 + .05 * i);
+      world.add(g);
+      floaters.push(g);
     }
 
-    const stand = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.72, 0.16), metal(COLORS.ink));
-    stand.position.y = -1.05;
-    monitorGroup.add(stand);
-    const standBase = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.08, 0.48), metal(COLORS.ink));
-    standBase.position.y = -1.4;
-    monitorGroup.add(standBase);
-
-    // Mini second monitor / device
-    const device = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.82, 0.12), matte(COLORS.white));
-    device.position.set(-1.2, -0.22, 0.46);
-    device.rotation.y = 0.16;
-    device.castShadow = true;
-    world.add(device);
-    const deviceScreen = new THREE.Mesh(new THREE.PlaneGeometry(1.04, 0.62), new THREE.MeshBasicMaterial({ color: COLORS.orange }));
-    deviceScreen.position.set(-1.19, -0.22, 0.526);
-    deviceScreen.rotation.y = 0.16;
-    world.add(deviceScreen);
-
-    // Keyboard
-    const keyboard = new THREE.Mesh(new THREE.BoxGeometry(1.55, 0.1, 0.55), matte(0xd8d2c9));
-    keyboard.position.set(0.32, -0.57, 0.75);
-    keyboard.rotation.x = -0.08;
-    world.add(keyboard);
-
-    // Circuit board: a visual nod to electronics background
-    const board = new THREE.Group();
-    board.position.set(-2.05, 0.15, 0.3);
-    board.rotation.set(-0.2, 0.28, -0.08);
-    world.add(board);
-
-    const pcb = new THREE.Mesh(new THREE.BoxGeometry(1.25, 1.55, 0.1), matte(COLORS.green));
-    pcb.castShadow = true;
-    board.add(pcb);
-    for (let i = 0; i < (mobile ? 9 : 15); i++) {
-      const chip = new THREE.Mesh(
-        new THREE.BoxGeometry(i % 3 === 0 ? 0.25 : 0.1, i % 4 === 0 ? 0.22 : 0.08, 0.08),
-        matte(i % 4 === 0 ? COLORS.ink : COLORS.yellow)
-      );
-      chip.position.set(-0.45 + ((i * 0.31) % 0.9), -0.58 + ((i * 0.27) % 1.16), 0.09);
-      board.add(chip);
-    }
-
-    // Floating orbit / tech halo
-    const orbit = new THREE.Group();
-    orbit.position.set(1.8, 1.75, 0.2);
-    world.add(orbit);
-
-    const ringA = new THREE.Mesh(new THREE.TorusGeometry(0.95, 0.055, 10, 48), matte(COLORS.orange));
-    ringA.rotation.x = 1.1;
-    orbit.add(ringA);
-    const ringB = new THREE.Mesh(new THREE.TorusGeometry(0.68, 0.04, 10, 48), matte(COLORS.yellow));
-    ringB.rotation.y = 1.0;
-    orbit.add(ringB);
-    const core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.3, 1), metal(COLORS.navy));
-    orbit.add(core);
-
-    // Orbiting small nodes
-    const nodeCount = mobile ? 5 : 8;
-    const nodes = [];
-    for (let i = 0; i < nodeCount; i++) {
-      const node = new THREE.Mesh(
-        new THREE.SphereGeometry(0.09 + (i % 3) * 0.02, 12, 12),
-        matte([COLORS.orange, COLORS.yellow, COLORS.green, COLORS.white][i % 4])
-      );
-      orbit.add(node);
-      nodes.push(node);
-    }
-
-    // Small plant for warmth
-    const plant = new THREE.Group();
-    plant.position.set(2.45, -1.12, -0.15);
-    world.add(plant);
-    const pot = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.34, 0.62, 20), matte(COLORS.orange));
-    plant.add(pot);
-    const leaves = mobile ? 5 : 7;
-    for (let i = 0; i < leaves; i++) {
-      const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.22, 14, 14), matte(COLORS.green));
-      leaf.scale.set(0.75, 1.7, 0.55);
-      const a = (i / leaves) * Math.PI * 2;
-      leaf.position.set(Math.cos(a) * 0.28, 0.55 + (i % 2) * 0.18, Math.sin(a) * 0.25);
-      leaf.rotation.z = Math.cos(a) * 0.45;
-      plant.add(leaf);
-    }
-
-    // Floating "document" tiles
-    const papers = [];
-    const paperCount = mobile ? 3 : 5;
-    for (let i = 0; i < paperCount; i++) {
-      const paper = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.7, 0.025), matte(COLORS.white));
-      const side = i % 2 === 0 ? -1 : 1;
-      paper.position.set(side * (2.5 + (i % 2) * 0.35), 1.55 - i * 0.36, -0.55 + i * 0.16);
-      paper.rotation.set(0.12 * i, 0.18 * side, 0.15 * side);
-      world.add(paper);
-      papers.push(paper);
-    }
-
-    // Lights
-    scene.add(new THREE.HemisphereLight(0xfffbf4, 0x9a8c7c, 2.5));
+    // Lighting
+    scene.add(new THREE.HemisphereLight(0xfffaf0, 0x6d6d78, 2.4));
     const key = new THREE.DirectionalLight(0xffffff, 3.4);
-    key.position.set(4, 7, 6);
+    key.position.set(4, 7, 7);
     key.castShadow = !mobile;
     scene.add(key);
-    const warm = new THREE.PointLight(COLORS.orange, 8, 10, 2);
-    warm.position.set(-4, 2.5, 4);
-    scene.add(warm);
-    const cool = new THREE.PointLight(0x86a8d8, 6, 11, 2);
-    cool.position.set(4, 3, 2);
-    scene.add(cool);
+    const blueLight = new THREE.PointLight(C.blue, 7, 10, 2);
+    blueLight.position.set(-4, 2.5, 4);
+    scene.add(blueLight);
+    const redLight = new THREE.PointLight(C.red, 5, 10, 2);
+    redLight.position.set(4, -2, 3);
+    scene.add(redLight);
 
-    // Interaction targets
     const target = { x: 0, y: 0 };
     const current = { x: 0, y: 0 };
     let scrollRatio = 0;
     let visible = true;
 
-    const updatePointer = (x, y) => {
-      target.x = (x / window.innerWidth - 0.5) * 2;
-      target.y = (y / window.innerHeight - 0.5) * 2;
+    const setPointer = (x, y) => {
+      target.x = (x / innerWidth - .5) * 2;
+      target.y = (y / innerHeight - .5) * 2;
     };
-
-    window.addEventListener('pointermove', (e) => updatePointer(e.clientX, e.clientY), { passive: true });
+    window.addEventListener('pointermove', (e) => setPointer(e.clientX, e.clientY), { passive: true });
     window.addEventListener('touchmove', (e) => {
       const t = e.touches[0];
-      if (t) updatePointer(t.clientX, t.clientY);
+      if (t) setPointer(t.clientX, t.clientY);
     }, { passive: true });
 
     const updateScroll = () => {
-      const hero = document.getElementById('hero');
+      const hero = document.querySelector('.hero');
       if (!hero) return;
       const rect = hero.getBoundingClientRect();
-      scrollRatio = THREE.MathUtils.clamp(-rect.top / Math.max(rect.height, 1), 0, 1.2);
+      scrollRatio = THREE.MathUtils.clamp(-rect.top / Math.max(rect.height, 1), 0, 1.1);
     };
     updateScroll();
-    window.addEventListener('scroll', updateScroll, { passive: true });
+    addEventListener('scroll', updateScroll, { passive: true });
 
-    const sceneObserver = new IntersectionObserver(entries => {
+    new IntersectionObserver((entries) => {
       visible = entries[0]?.isIntersecting ?? true;
-    }, { threshold: 0.01 });
-    sceneObserver.observe(container);
+    }, { threshold: 0.01 }).observe(container);
 
     function resize() {
-      const w = Math.max(container.clientWidth, 1);
-      const h = Math.max(container.clientHeight, 1);
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h;
+      const width = Math.max(container.clientWidth, 1);
+      const height = Math.max(container.clientHeight, 1);
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
       camera.updateProjectionMatrix();
     }
-    window.addEventListener('resize', resize, { passive: true });
+    addEventListener('resize', resize, { passive: true });
     resize();
 
     const clock = new THREE.Clock();
@@ -287,40 +250,33 @@ if (!container || !window.WebGLRenderingContext) {
       if (!visible && !reducedMotion) return;
 
       const t = clock.getElapsedTime();
-      current.x += (target.x - current.x) * (mobile ? 0.035 : 0.055);
-      current.y += (target.y - current.y) * (mobile ? 0.035 : 0.055);
+      current.x += (target.x - current.x) * (mobile ? .035 : .055);
+      current.y += (target.y - current.y) * (mobile ? .035 : .055);
 
       if (!reducedMotion) {
-        world.rotation.y = -0.16 + current.x * 0.15 + scrollRatio * 0.22;
-        world.rotation.x = -0.08 + current.y * -0.075 + scrollRatio * 0.06;
-        world.position.y = Math.sin(t * 0.7) * 0.045 - scrollRatio * 0.18;
-        orbit.rotation.y = t * 0.5;
-        orbit.rotation.z = Math.sin(t * 0.6) * 0.22;
-        core.rotation.x = t * 0.9;
-        core.rotation.y = t * 1.2;
-        monitorGroup.rotation.y = current.x * 0.035;
-        board.rotation.y = 0.28 - current.x * 0.08;
-
-        nodes.forEach((node, i) => {
-          const a = t * (0.55 + i * 0.025) + (i / nodeCount) * Math.PI * 2;
-          const r = 1.12 + (i % 2) * 0.18;
-          node.position.set(Math.cos(a) * r, Math.sin(a * 1.3) * 0.55, Math.sin(a) * r);
-        });
-
-        papers.forEach((paper, i) => {
-          paper.position.y += Math.sin(t * 0.8 + i) * 0.0007;
-          paper.rotation.z += 0.0007 * (i % 2 ? 1 : -1);
+        world.rotation.y = -.25 + current.x * .17 + scrollRatio * .2;
+        world.rotation.x = -.05 - current.y * .08 + scrollRatio * .04;
+        world.position.y = Math.sin(t * .65) * .055 - scrollRatio * .15;
+        boardGroup.rotation.z = -.11 + Math.sin(t * .5) * .025;
+        signal.rotation.y = t * .8;
+        ring1.rotation.z = t * .55;
+        ring2.rotation.x = t * .42;
+        orb.rotation.x = t * .9;
+        orb.rotation.y = t * 1.1;
+        floaters.forEach((floater, i) => {
+          floater.position.y += Math.sin(t * .75 + i) * .0009;
+          floater.rotation.z += (i % 2 ? 1 : -1) * .00045;
         });
       }
 
-      camera.position.x = current.x * (mobile ? 0.28 : 0.42);
-      camera.position.y = 1.6 + current.y * -0.18 + scrollRatio * 0.22;
-      camera.lookAt(0, -0.25, 0);
+      camera.position.x = current.x * (mobile ? .3 : .5);
+      camera.position.y = .3 - current.y * .16 + scrollRatio * .18;
+      camera.lookAt(0, -0.1, 0);
       renderer.render(scene, camera);
     }
     animate();
   } catch (error) {
-    console.warn('3D scene fallback activated:', error);
+    console.warn('3D fallback activated:', error);
     if (fallback) fallback.style.display = 'grid';
   }
 }
