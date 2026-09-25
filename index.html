@@ -3,30 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f1eee6" />
-  <meta name="description" content="Portfolio of Mark Ian Buenzalida — Electronics Technology graduate with experience in client relations, documentation, technical support, operations, and practice teaching." />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="Portfolio of Mark Ian Buenzalida — Electronics Technology graduate with experience in client relations, documentation, electronics troubleshooting, operations, and practice teaching." />
   <meta property="og:title" content="Mark Ian Buenzalida — Portfolio" />
-  <meta property="og:description" content="Electronics, admin, technical support, and people-focused work." />
+  <meta property="og:description" content="Electronics, administration, client support, documentation, and practical technical work." />
   <meta property="og:type" content="website" />
-  <title>Mark Ian Buenzalida — Portfolio</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <title>Mark Ian Buenzalida | Portfolio</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="cursor-spot" aria-hidden="true"></div>
+  <div class="ambient" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div class="grid-glow"></div>
+  </div>
+
+  <div class="cursor-light" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="wordmark" href="#top" aria-label="Mark Ian, back to top">
-      <span>MARK IAN</span>
-      <small>PORTFOLIO / 2026</small>
+    <a class="brand" href="#top" aria-label="Mark Ian Buenzalida, back to top">
+      <span class="brand-mark">MI</span>
+      <span class="brand-name">Mark Ian</span>
     </a>
 
-    <button class="menu-toggle" aria-controls="nav" aria-expanded="false" aria-label="Open menu">
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span>
     </button>
 
-    <nav id="nav" class="nav" aria-label="Main navigation">
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
@@ -34,220 +39,331 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="availability"><i></i> Open to opportunities</div>
+    <a class="header-cta" href="mailto:markianqbuenzalida@gmail.com">
+      <span class="status-dot"></span>
+      Available
+    </a>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="hero-index">01 — INTRODUCTION</div>
-        <h1 class="display-title">
-          <span>MARK</span>
-          <span class="outline">IAN</span>
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Portfolio / 2026</p>
+        <h1>
+          <span>Mark Ian</span>
+          <strong>Buenzalida</strong>
         </h1>
+        <p class="hero-intro">
+          Electronics Technology graduate with practical experience across
+          <em>technical support, client relations, documentation, operations, and teaching.</em>
+        </p>
 
-        <div class="hero-bottom">
-          <p class="hero-lede">
-            Electronics-trained, detail-oriented, and comfortable where
-            <strong>people, documents, systems, and hardware</strong> meet.
-          </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#experience">View experience <span>↘</span></a>
+          <a class="btn btn-glass" href="mailto:markianqbuenzalida@gmail.com">Email me</a>
+        </div>
 
-          <div class="hero-facts">
-            <div><span>Based in</span><strong>Valenzuela City, PH</strong></div>
-            <div><span>Background</span><strong>Electronics Technology</strong></div>
-            <div><span>Focus</span><strong>Admin · Tech · Support</strong></div>
+        <div class="hero-meta" aria-label="Professional summary">
+          <div>
+            <span>Based in</span>
+            <strong>Valenzuela City, Philippines</strong>
+          </div>
+          <div>
+            <span>Focused on</span>
+            <strong>Admin · Tech · Client Support</strong>
           </div>
         </div>
       </div>
 
-      <div class="hero-visual" aria-label="Interactive electronics-inspired 3D scene">
-        <div class="visual-caption">MOVE / TOUCH / SCROLL</div>
-        <div id="three-scene" class="three-scene"></div>
-        <div class="visual-stamp" aria-hidden="true">
-          <span>MI</span>
-          <small>TECH + PEOPLE</small>
+      <div class="hero-showcase reveal">
+        <div class="profile-glass glass-card">
+          <div class="profile-top">
+            <span class="profile-kicker">PROFILE / MI</span>
+            <span class="mini-status"><i></i> OPEN TO WORK</span>
+          </div>
+
+          <div class="monogram-wrap" aria-hidden="true">
+            <div class="monogram-ring ring-one"></div>
+            <div class="monogram-ring ring-two"></div>
+            <div class="monogram">MI</div>
+          </div>
+
+          <div class="profile-bottom">
+            <div>
+              <span>Core</span>
+              <strong>Electronics Technology</strong>
+            </div>
+            <div>
+              <span>Strength</span>
+              <strong>Reliable follow-through</strong>
+            </div>
+          </div>
         </div>
-        <div class="scene-fallback" aria-hidden="true">
-          <div class="fallback-chip">MI</div>
+
+        <div class="floating-chip chip-one">
+          <small>01</small>
+          <strong>Electronics</strong>
+          <span>Troubleshooting & repair</span>
+        </div>
+
+        <div class="floating-chip chip-two">
+          <small>02</small>
+          <strong>Office</strong>
+          <span>Records, CRM & documents</span>
+        </div>
+
+        <div class="floating-chip chip-three">
+          <small>03</small>
+          <strong>People</strong>
+          <span>Clients & classroom support</span>
         </div>
       </div>
 
-      <div class="hero-rail" aria-hidden="true">
-        <span>ELECTRONICS</span><span>DOCUMENTATION</span><span>OPERATIONS</span><span>TEACHING</span>
+      <div class="hero-strip glass-card reveal">
+        <span>Electronics</span>
+        <i></i>
+        <span>Documentation</span>
+        <i></i>
+        <span>Client Relations</span>
+        <i></i>
+        <span>Operations</span>
+        <i></i>
+        <span>Teaching</span>
       </div>
     </section>
 
-    <section class="section about" id="about">
-      <div class="section-label reveal">02 / ABOUT</div>
-      <div class="about-layout">
-        <p class="about-statement reveal">
-          I like work that is <em>practical</em>, organized, and useful to someone on the other side.
+    <section class="section-shell section-block" id="about">
+      <div class="section-heading reveal">
+        <p class="section-index">01 / ABOUT</p>
+        <h2>Practical work.<br><span>Clear communication.</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <article class="glass-card about-main reveal">
+          <p class="large-copy">
+            I work comfortably between technical tasks and people-facing responsibilities.
+            My background in electronics taught me to diagnose problems carefully; my office,
+            client, warehouse, and teaching experience taught me to stay organized and communicate clearly.
+          </p>
+          <p>
+            I value work that is accurate, useful, and finished properly. I adapt quickly to new systems,
+            keep records organized, and handle responsibilities with attention to detail.
+          </p>
+        </article>
+
+        <aside class="about-side">
+          <article class="glass-card compact-card reveal">
+            <span class="card-label">What I bring</span>
+            <strong>Technical + administrative range</strong>
+            <p>Useful in teams that need someone who can handle both systems and people.</p>
+          </article>
+
+          <article class="glass-card compact-card reveal">
+            <span class="card-label">Current direction</span>
+            <strong>Office, support & technical roles</strong>
+            <p>Open to roles where organization, communication, and practical problem-solving matter.</p>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-shell section-block" id="experience">
+      <div class="section-heading split-heading reveal">
+        <div>
+          <p class="section-index">02 / EXPERIENCE</p>
+          <h2>Experience across<br><span>different environments.</span></h2>
+        </div>
+        <p class="heading-note">
+          Each role developed a different part of how I work: accuracy, communication,
+          practical troubleshooting, organization, and responsibility.
         </p>
-        <div class="about-copy reveal">
-          <p>
-            I graduated in Technical-Vocational Teacher Education, major in Electronics Technology. My experience has moved across client relations, documentation, warehouse operations, electronics repair, and classroom work.
-          </p>
-          <p>
-            That mix taught me to switch between technical details and human needs: explain clearly, keep records accurate, solve what I can, and follow through on what matters.
-          </p>
-          <a class="text-link" href="#experience">See where I’ve worked <span>↘</span></a>
-        </div>
-      </div>
-
-      <div class="manifesto reveal" aria-label="Work principles">
-        <span>Be clear.</span>
-        <span>Be useful.</span>
-        <span>Check the details.</span>
-        <span>Finish the task.</span>
-      </div>
-    </section>
-
-    <section class="section experience" id="experience">
-      <div class="section-label reveal">03 / EXPERIENCE</div>
-      <div class="experience-head reveal">
-        <h2>Selected <span>experience</span></h2>
-        <p>Different environments, one consistent habit: learn the system, keep things organized, and help the work move forward.</p>
       </div>
 
       <div class="experience-list">
-        <article class="experience-row reveal">
-          <div class="row-no">01</div>
-          <div class="row-title"><h3>Client Relations Officer</h3><span>Better Practice</span></div>
-          <p>Client communication, document processing, records, data handling, and requirement follow-through.</p>
-          <div class="row-tags">CRM / RECORDS / CLIENT SUPPORT</div>
-        </article>
-
-        <article class="experience-row reveal">
-          <div class="row-no">02</div>
-          <div class="row-title"><h3>Practice Teacher Intern</h3><span>Lawang Bato National High School</span></div>
-          <p>Lesson plans, instructional materials, classroom support, and a final teaching demonstration.</p>
-          <div class="row-tags">TEACHING / PLANNING / COMMUNICATION</div>
-        </article>
-
-        <article class="experience-row reveal">
-          <div class="row-no">03</div>
-          <div class="row-title"><h3>Electronics Technician</h3><span>Home-Based / Self-Employed</span></div>
-          <p>Hands-on troubleshooting and repair of electronics while diagnosing practical device and component problems.</p>
-          <div class="row-tags">REPAIR / DIAGNOSIS / HANDS-ON</div>
-        </article>
-
-        <article class="experience-row reveal">
-          <div class="row-no">04</div>
-          <div class="row-title"><h3>Warehouse Staff</h3><span>J&amp;T Express</span></div>
-          <p>Fast-paced operations supporting accurate handling, movement, organization, and monitoring of items.</p>
-          <div class="row-tags">OPERATIONS / INVENTORY / ACCURACY</div>
-        </article>
-
-        <article class="experience-row reveal">
-          <div class="row-no">05</div>
-          <div class="row-title"><h3>On-the-Job Trainee</h3><span>Winland Electronics &amp; Electrical Center</span></div>
-          <p>Practical exposure to electronics and electrical work, technical tasks, record keeping, and shop operations.</p>
-          <div class="row-tags">ELECTRONICS / SUPPORT / RECORDS</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="skills-break" id="skills">
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>TECHNICAL SUPPORT</span><i>✦</i><span>DOCUMENTATION</span><i>✦</i><span>ELECTRONICS</span><i>✦</i><span>CLIENT RELATIONS</span><i>✦</i><span>OFFICE WORK</span><i>✦</i><span>TEACHING</span><i>✦</i>
-          <span>TECHNICAL SUPPORT</span><i>✦</i><span>DOCUMENTATION</span><i>✦</i><span>ELECTRONICS</span><i>✦</i><span>CLIENT RELATIONS</span><i>✦</i><span>OFFICE WORK</span><i>✦</i><span>TEACHING</span><i>✦</i>
-        </div>
-      </div>
-
-      <div class="section skill-section">
-        <div class="section-label reveal">04 / SKILLS</div>
-        <div class="skills-grid">
-          <div class="skills-intro reveal">
-            <h2>Useful skills, <span>not buzzwords.</span></h2>
-            <p>What I can actually bring into the room on day one.</p>
+        <article class="experience-item glass-card reveal">
+          <div class="experience-no">01</div>
+          <div class="experience-title">
+            <h3>Client Relations Officer</h3>
+            <span>Better Practice</span>
           </div>
+          <p>Supported client communication, document processing, records, data handling, and organized follow-through on requirements.</p>
+          <div class="tags"><span>Client Support</span><span>CRM</span><span>Documentation</span></div>
+        </article>
 
-          <div class="skills-columns reveal">
-            <div class="skill-group">
-              <span class="skill-group-no">A</span>
-              <h3>Office &amp; Records</h3>
-              <ul>
-                <li>Microsoft Office</li>
-                <li>Data encoding</li>
-                <li>Document processing</li>
-                <li>Records management</li>
-                <li>Report preparation</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <span class="skill-group-no">B</span>
-              <h3>Technical</h3>
-              <ul>
-                <li>Electronics troubleshooting</li>
-                <li>Basic repair</li>
-                <li>Computer-based workflows</li>
-                <li>Inventory support</li>
-                <li>Technical problem-solving</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <span class="skill-group-no">C</span>
-              <h3>People</h3>
-              <ul>
-                <li>Client coordination</li>
-                <li>CRM use</li>
-                <li>Classroom support</li>
-                <li>Lesson planning</li>
-                <li>Clear communication</li>
-              </ul>
-            </div>
+        <article class="experience-item glass-card reveal">
+          <div class="experience-no">02</div>
+          <div class="experience-title">
+            <h3>Practice Teacher Intern</h3>
+            <span>Lawang Bato National High School</span>
           </div>
-        </div>
+          <p>Prepared lesson plans and instructional materials, supported classroom management and learning activities, and completed a final teaching demonstration.</p>
+          <div class="tags"><span>Lesson Planning</span><span>Teaching</span><span>Communication</span></div>
+        </article>
+
+        <article class="experience-item glass-card reveal">
+          <div class="experience-no">03</div>
+          <div class="experience-title">
+            <h3>Home-Based Electronics Technician</h3>
+            <span>Self-Employed</span>
+          </div>
+          <p>Applied hands-on electronics troubleshooting and repair skills while diagnosing practical device and component problems.</p>
+          <div class="tags"><span>Diagnostics</span><span>Repair</span><span>Electronics</span></div>
+        </article>
+
+        <article class="experience-item glass-card reveal">
+          <div class="experience-no">04</div>
+          <div class="experience-title">
+            <h3>Warehouse Staff</h3>
+            <span>J&amp;T Express</span>
+          </div>
+          <p>Worked in a fast-paced operations environment supporting organized handling, movement, and monitoring of items.</p>
+          <div class="tags"><span>Operations</span><span>Inventory</span><span>Accuracy</span></div>
+        </article>
+
+        <article class="experience-item glass-card reveal">
+          <div class="experience-no">05</div>
+          <div class="experience-title">
+            <h3>On-the-Job Trainee</h3>
+            <span>Winland Electronics &amp; Electrical Center</span>
+          </div>
+          <p>Gained practical exposure to electronics and electrical work while supporting technical tasks, record keeping, and day-to-day shop operations.</p>
+          <div class="tags"><span>Technical Support</span><span>Records</span><span>Electronics</span></div>
+        </article>
       </div>
     </section>
 
-    <section class="section education" id="education">
-      <div class="section-label reveal">05 / EDUCATION</div>
-      <div class="education-layout">
-        <div class="education-title reveal">
-          <h2>Built from a <span>technical-vocational</span> foundation.</h2>
-        </div>
-        <div class="education-list">
-          <article class="education-row reveal">
-            <time>2022 — 2026</time>
-            <div><h3>Bachelor of Technical-Vocational Teacher Education</h3><p>Major in Electronics Technology</p><span>Valenzuela City Technological College</span></div>
-          </article>
-          <article class="education-row reveal">
-            <time>2020 — 2022</time>
-            <div><h3>Senior High School — STEM</h3><p>Science, Technology, Engineering and Mathematics</p><span>Pamantasan ng Lungsod ng Valenzuela</span></div>
-          </article>
-          <article class="education-row reveal">
-            <time>2016 — 2020</time>
-            <div><h3>Junior High School</h3><p>Secondary Education</p><span>Canumay East National High School</span></div>
-          </article>
-        </div>
+    <section class="section-shell section-block" id="skills">
+      <div class="section-heading reveal">
+        <p class="section-index">03 / CAPABILITIES</p>
+        <h2>Useful skills,<br><span>organized by how I work.</span></h2>
+      </div>
+
+      <div class="bento-grid">
+        <article class="glass-card bento bento-large reveal">
+          <div class="bento-icon">A</div>
+          <span class="card-label">Office & documentation</span>
+          <h3>Keep information clear and usable.</h3>
+          <div class="skill-cloud">
+            <span>Microsoft Office</span>
+            <span>Data Encoding</span>
+            <span>Records Management</span>
+            <span>Document Processing</span>
+            <span>Report Preparation</span>
+            <span>CRM</span>
+          </div>
+        </article>
+
+        <article class="glass-card bento reveal">
+          <div class="bento-icon">B</div>
+          <span class="card-label">Technical</span>
+          <h3>Diagnose first, then solve.</h3>
+          <ul>
+            <li>Electronics troubleshooting</li>
+            <li>Basic repair</li>
+            <li>Computer-based workflows</li>
+            <li>Technical problem-solving</li>
+          </ul>
+        </article>
+
+        <article class="glass-card bento reveal">
+          <div class="bento-icon">C</div>
+          <span class="card-label">People</span>
+          <h3>Communicate without overcomplicating things.</h3>
+          <ul>
+            <li>Client coordination</li>
+            <li>Classroom support</li>
+            <li>Lesson planning</li>
+            <li>Clear communication</li>
+          </ul>
+        </article>
+
+        <article class="glass-card bento bento-wide reveal">
+          <div class="bento-wide-copy">
+            <span class="card-label">Work style</span>
+            <h3>Organized enough for records. Practical enough for hardware. Adaptable enough for people.</h3>
+          </div>
+          <div class="work-style-meter" aria-label="Work style">
+            <div><span>Accuracy</span><i style="--level: 92%"></i></div>
+            <div><span>Organization</span><i style="--level: 90%"></i></div>
+            <div><span>Adaptability</span><i style="--level: 88%"></i></div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="contact-top reveal">
-        <span>06 / CONTACT</span>
-        <span>VALENZUELA CITY, PHILIPPINES</span>
+    <section class="section-shell section-block" id="education">
+      <div class="section-heading split-heading reveal">
+        <div>
+          <p class="section-index">04 / EDUCATION</p>
+          <h2>Technical roots.<br><span>Teaching foundation.</span></h2>
+        </div>
+        <p class="heading-note">
+          My degree combines technical-vocational training with the communication and planning required in education.
+        </p>
       </div>
-      <div class="contact-main reveal">
-        <p>Need someone who can handle both the details and the people?</p>
-        <h2>LET’S<br><em>WORK.</em></h2>
+
+      <div class="education-grid">
+        <article class="glass-card education-card reveal">
+          <span class="education-year">2022 — 2026</span>
+          <h3>Bachelor of Technical-Vocational Teacher Education</h3>
+          <p>Major in Electronics Technology</p>
+          <strong>Valenzuela City Technological College</strong>
+        </article>
+
+        <article class="glass-card education-card reveal">
+          <span class="education-year">2020 — 2022</span>
+          <h3>Senior High School — STEM</h3>
+          <p>Science, Technology, Engineering and Mathematics</p>
+          <strong>Pamantasan ng Lungsod ng Valenzuela</strong>
+        </article>
+
+        <article class="glass-card education-card reveal">
+          <span class="education-year">2016 — 2020</span>
+          <h3>Junior High School</h3>
+          <p>Secondary Education</p>
+          <strong>Canumay East National High School</strong>
+        </article>
       </div>
-      <div class="contact-bottom reveal">
-        <a href="mailto:markianqbuenzalida@gmail.com">markianqbuenzalida@gmail.com <span>↗</span></a>
-        <a href="tel:+639935015771">0993 501 5771 <span>↗</span></a>
-        <a href="https://github.com/FetzCriey" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+    </section>
+
+    <section class="section-shell contact-section" id="contact">
+      <div class="contact-card glass-card reveal">
+        <div class="contact-copy">
+          <p class="section-index">05 / CONTACT</p>
+          <h2>Have a role where I can be <span>useful?</span></h2>
+          <p>
+            I’m open to opportunities involving office work, client support,
+            documentation, technical support, electronics, and related operations.
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:markianqbuenzalida@gmail.com">
+            <span>Email</span>
+            <strong>markianqbuenzalida@gmail.com</strong>
+            <i>↗</i>
+          </a>
+          <a href="tel:+639935015771">
+            <span>Phone</span>
+            <strong>0993 501 5771</strong>
+            <i>↗</i>
+          </a>
+          <a href="https://github.com/FetzCriey" target="_blank" rel="noreferrer">
+            <span>GitHub</span>
+            <strong>FetzCriey</strong>
+            <i>↗</i>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <span>© 2026 MARK IAN BUENZALIDA</span>
-    <span>DESIGNED &amp; BUILT FROM SCRATCH</span>
-    <a href="#top">BACK TO TOP ↑</a>
+  <footer class="section-shell">
+    <span>© 2026 Mark Ian Buenzalida</span>
+    <span>Built for clarity, not decoration.</span>
+    <a href="#top">Back to top ↑</a>
   </footer>
 
-  <script type="module" src="./main.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
