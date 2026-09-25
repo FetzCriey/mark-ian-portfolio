@@ -4,14 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#07111f" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="description" content="Portfolio of Mark Ian Buenzalida — Electronics Technology graduate with experience in client relations, documentation, electronics troubleshooting, operations, and practice teaching." />
+  <link rel="canonical" href="https://mark-ian-portfolio.vercel.app/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <meta property="og:title" content="Mark Ian Buenzalida — Portfolio" />
   <meta property="og:description" content="Electronics, administration, client support, documentation, and practical technical work." />
-  <meta property="og:type" content="website" />
-  <title>Mark Ian Buenzalida | Portfolio</title>
-  <link rel="stylesheet" href="./style.css" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://mark-ian-portfolio.vercel.app/" />
+  <meta property="og:site_name" content="Mark Ian Buenzalida — Portfolio" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mark Ian Buenzalida — Portfolio" />
+  <meta name="twitter:description" content="Electronics, administration, client support, documentation, and practical technical work." />
+  <title>Mark Ian Buenzalida | Electronics, Admin & Technical Support</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","url":"https://mark-ian-portfolio.vercel.app/","name":"Mark Ian Buenzalida — Portfolio","mainEntity":{"@type":"Person","name":"Mark Ian Buenzalida","url":"https://mark-ian-portfolio.vercel.app/","email":"mailto:markianqbuenzalida@gmail.com","telephone":"+639935015771","description":"Electronics Technology graduate with experience in client relations, documentation, electronics troubleshooting, operations, and practice teaching.","sameAs":["https://github.com/FetzCriey"],"alumniOf":{"@type":"CollegeOrUniversity","name":"Valenzuela City Technological College"},"knowsAbout":["Electronics troubleshooting","Microsoft Office","Document processing","Records management","Client relations","Technical support","Lesson planning"]}}</script>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="ambient" aria-hidden="true">
     <div class="orb orb-a"></div>
     <div class="orb orb-b"></div>
@@ -22,7 +33,7 @@
   <div class="cursor-light" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Mark Ian Buenzalida, back to top">
+    <a class="brand" href="#main-content" aria-label="Mark Ian Buenzalida, back to top">
       <span class="brand-mark">MI</span>
       <span class="brand-name">Mark Ian</span>
     </a>
@@ -34,6 +45,7 @@
     <nav class="main-nav" id="main-nav" aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
@@ -45,7 +57,7 @@
     </a>
   </header>
 
-  <main id="top">
+  <main id="main-content">
     <section class="hero section-shell">
       <div class="hero-copy reveal">
         <p class="eyebrow">Portfolio / 2026</p>
@@ -232,9 +244,84 @@
       </div>
     </section>
 
+    <section class="section-shell section-block" id="work">
+      <div class="section-heading split-heading reveal">
+        <div>
+          <p class="section-index">03 / SELECTED WORK</p>
+          <h2>Real builds.<br><span>Not placeholder projects.</span></h2>
+        </div>
+        <p class="heading-note">
+          A selection from my public GitHub work. These are included because they show practical implementation, not just course or tool names.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="glass-card project-card project-featured reveal">
+          <div class="project-preview evaluation-preview" aria-hidden="true">
+            <div class="preview-window">
+              <div class="preview-bar"><i></i><i></i><i></i><span>Performance Evaluation</span></div>
+              <div class="preview-body">
+                <div class="preview-sidebar"></div>
+                <div class="preview-content">
+                  <div class="preview-heading"></div>
+                  <div class="preview-fields"><i></i><i></i><i></i></div>
+                  <div class="preview-table">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-topline">
+              <span class="card-label">Public web application</span>
+              <span class="project-number">01</span>
+            </div>
+            <h3>Staff Evaluation System</h3>
+            <p>
+              A browser-based performance evaluation tool with a login flow, evaluator controls, scored criteria,
+              calculated totals, comments, manager controls, and Supabase-connected application logic.
+            </p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Supabase</span>
+            </div>
+            <a class="project-link" href="https://github.com/FetzCriey/staff_evaluation" target="_blank" rel="noreferrer">
+              View repository <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="glass-card project-card reveal">
+          <div class="project-preview hangman-preview" aria-hidden="true">
+            <div class="hangman-word">B U _ N _ _ _ I D A</div>
+            <div class="hangman-keys">
+              <i>A</i><i>B</i><i>C</i><i>D</i><i>E</i><i>F</i>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-topline">
+              <span class="card-label">Public JavaScript project</span>
+              <span class="project-number">02</span>
+            </div>
+            <h3>Hangman Game</h3>
+            <p>
+              A single-page JavaScript word game with alphabet controls, win/loss state,
+              dynamic feedback, disabled-key handling, and visual changes based on guesses.
+            </p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <a class="project-link" href="https://github.com/FetzCriey/hangman" target="_blank" rel="noreferrer">
+              View repository <span>↗</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section-shell section-block" id="skills">
       <div class="section-heading reveal">
-        <p class="section-index">03 / CAPABILITIES</p>
+        <p class="section-index">04 / CAPABILITIES</p>
         <h2>Useful skills,<br><span>organized by how I work.</span></h2>
       </div>
 
@@ -282,10 +369,10 @@
             <span class="card-label">Work style</span>
             <h3>Organized enough for records. Practical enough for hardware. Adaptable enough for people.</h3>
           </div>
-          <div class="work-style-meter" aria-label="Work style">
-            <div><span>Accuracy</span><i style="--level: 92%"></i></div>
-            <div><span>Organization</span><i style="--level: 90%"></i></div>
-            <div><span>Adaptability</span><i style="--level: 88%"></i></div>
+          <div class="principle-grid" aria-label="Work principles">
+            <div><span>01</span><strong>Check the details</strong><p>Verify information before passing work forward.</p></div>
+            <div><span>02</span><strong>Keep it organized</strong><p>Make records and handoffs easy for the next person to use.</p></div>
+            <div><span>03</span><strong>Follow through</strong><p>Close the loop instead of leaving tasks half-finished.</p></div>
           </div>
         </article>
       </div>
@@ -294,7 +381,7 @@
     <section class="section-shell section-block" id="education">
       <div class="section-heading split-heading reveal">
         <div>
-          <p class="section-index">04 / EDUCATION</p>
+          <p class="section-index">05 / EDUCATION</p>
           <h2>Technical roots.<br><span>Teaching foundation.</span></h2>
         </div>
         <p class="heading-note">
@@ -329,7 +416,7 @@
     <section class="section-shell contact-section" id="contact">
       <div class="contact-card glass-card reveal">
         <div class="contact-copy">
-          <p class="section-index">05 / CONTACT</p>
+          <p class="section-index">06 / CONTACT</p>
           <h2>Have a role where I can be <span>useful?</span></h2>
           <p>
             I’m open to opportunities involving office work, client support,
@@ -348,7 +435,7 @@
             <strong>0993 501 5771</strong>
             <i>↗</i>
           </a>
-          <a href="https://github.com/FetzCriey" target="_blank" rel="noreferrer">
+          <a href="https://github.com/FetzCriey" target="_blank" rel="me noreferrer">
             <span>GitHub</span>
             <strong>FetzCriey</strong>
             <i>↗</i>
@@ -360,10 +447,10 @@
 
   <footer class="section-shell">
     <span>© 2026 Mark Ian Buenzalida</span>
-    <span>Built for clarity, not decoration.</span>
-    <a href="#top">Back to top ↑</a>
+    <span>Static HTML · CSS · JavaScript · Vercel</span>
+    <a href="#main-content">Back to top ↑</a>
   </footer>
 
-  <script src="./main.js"></script>
+  <script src="/main.js" defer></script>
 </body>
 </html>
