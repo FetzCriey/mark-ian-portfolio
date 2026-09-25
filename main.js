@@ -164,7 +164,7 @@ if (!container || !window.WebGLRenderingContext) {
     plugTip.position.x = 0.45;
     connector.add(plugTip);
 
-    // Floating orb and rings â motion anchor
+    // Floating orb and rings — motion anchor
     const signal = new THREE.Group();
     signal.position.set(-2.2, 1.45, 1.0);
     world.add(signal);
