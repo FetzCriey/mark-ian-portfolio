@@ -1,34 +1,25 @@
-MARK IAN BUENZALIDA — PORTFOLIO WEBSITE
+MARK IAN BUENZALIDA — PORTFOLIO
 
-Files:
-- index.html  : portfolio content and page structure
-- style.css   : responsive visual design
-- main.js     : navigation, scroll animations, and the interactive Three.js scene
+A lightweight static portfolio built with HTML, CSS, JavaScript, and Three.js.
 
-HOW TO PREVIEW
-1. Put all three files in the same folder.
-2. Open the folder in VS Code.
-3. Use a local web server such as the VS Code “Live Server” extension.
-4. Open the local address it gives you.
+LIVE DEPLOYMENT
+Hosted on Vercel and connected to the GitHub main branch. New commits to main trigger a new deployment automatically.
 
-WHY A LOCAL SERVER?
-The 3D scene loads Three.js as a JavaScript module from jsDelivr. Most browsers handle this best through http:// or https:// rather than by double-clicking the HTML file.
+FILES
+- index.html — page content and structure
+- style.css — editorial responsive design
+- main.js — navigation, reveal effects, and the interactive electronics-themed 3D scene
 
-HOW TO PUBLISH FOR FREE
-Cloudflare Pages / GitHub Pages / Netlify:
-- Upload the three files while keeping their names unchanged.
-- Use the project root as the site root.
-- No build command is needed.
-- The entry page is index.html.
+DESIGN DIRECTION
+The site combines editorial typography, asymmetrical layout, restrained motion, and one distinctive interactive 3D object. The goal is to feel personal and deliberately designed rather than template-based.
 
-MOBILE PERFORMANCE ALREADY INCLUDED
-- Lower render resolution on small devices
-- Fewer 3D objects on mobile
-- No heavy external 3D model
-- Simple shapes and materials
-- Rendering can pause when the hero scene is off screen
+MOBILE PERFORMANCE
+- Lower WebGL render resolution on small screens
+- Fewer 3D elements on mobile
+- No downloaded 3D models
+- Rendering pauses when the hero is off screen
+- Touch movement support
 - Reduced-motion accessibility support
-- Touch movement controls
 
-NEXT CONTENT TO ADD LATER
-You can add real project screenshots, certificates, GitHub/LinkedIn links, and a downloadable resume when those assets are ready.
+PORTRAIT
+A transparent portrait can be added later once the final PNG is provided.
