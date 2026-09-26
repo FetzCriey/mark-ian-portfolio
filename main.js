@@ -12,7 +12,7 @@ const cursorCross = document.querySelector('.cursor-cross');
 
 
 /* ─────────────────────────────────────────────────────────────
-   INTERACTIVE PORTRAIT / IMAGE-DERIVED 3D DEPTH MESH
+   INTERACTIVE 3D ANIME PORTRAIT / IMAGE-DERIVED DEPTH MESH
    Pointer reacts without click. Scroll adds depth + rotation.
    ───────────────────────────────────────────────────────────── */
 (async function initPortraitDepthMesh(){
@@ -25,14 +25,7 @@ const cursorCross = document.querySelector('.cursor-cross');
 
   if(!hero||!shell||!stage||!canvas||!fallback) return;
 
-  const portraitParts=[
-    '/assets/portrait-1.b64',
-    '/assets/portrait-2.b64',
-    '/assets/portrait-3.b64',
-    '/assets/portrait-4.b64',
-    '/assets/portrait-5.b64',
-    '/assets/portrait-6.b64'
-  ];
+  const portraitUrl='/assets/markian-anime.webp';
 
   const state={
     pointerX:0,
@@ -46,18 +39,6 @@ const cursorCross = document.querySelector('.cursor-cross');
 
   const clamp=(n,min,max)=>Math.min(Math.max(n,min),max);
 
-  async function base64Asset(paths,mime){
-    const chunks=await Promise.all(paths.map(async(path)=>{
-      const response=await fetch(path,{cache:'force-cache'});
-      if(!response.ok) throw new Error('Asset failed: '+path);
-      return (await response.text()).trim();
-    }));
-    const raw=atob(chunks.join(''));
-    const bytes=new Uint8Array(raw.length);
-    for(let i=0;i<raw.length;i++) bytes[i]=raw.charCodeAt(i);
-    return URL.createObjectURL(new Blob([bytes],{type:mime}));
-  }
-
   function loadImage(url){
     return new Promise((resolve,reject)=>{
       const image=new Image();
@@ -68,11 +49,7 @@ const cursorCross = document.querySelector('.cursor-cross');
     });
   }
 
-  let portraitUrl='';
-  let depthUrl='';
-
   try{
-    portraitUrl=await base64Asset(portraitParts,'image/webp');
     fallback.src=portraitUrl;
     await fallback.decode().catch(()=>{});
     stage.classList.add('is-fallback');
@@ -84,11 +61,9 @@ const cursorCross = document.querySelector('.cursor-cross');
       return;
     }
 
-    depthUrl=await base64Asset(['/assets/portrait-depth.b64'],'image/webp');
 
-    const [portraitImage,depthImage,THREE]=await Promise.all([
+    const [portraitImage,THREE]=await Promise.all([
       loadImage(portraitUrl),
-      loadImage(depthUrl),
       import('https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js')
     ]);
 
@@ -107,12 +82,12 @@ const cursorCross = document.querySelector('.cursor-cross');
     renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,coarsePointer?1.35:1.8));
     renderer.outputColorSpace=THREE.SRGBColorSpace;
 
-    const depthCanvas=document.createElement('canvas');
-    depthCanvas.width=depthImage.naturalWidth;
-    depthCanvas.height=depthImage.naturalHeight;
-    const depthContext=depthCanvas.getContext('2d',{willReadFrequently:true});
-    depthContext.drawImage(depthImage,0,0);
-    const depthData=depthContext.getImageData(0,0,depthCanvas.width,depthCanvas.height).data;
+    const sampleCanvas=document.createElement('canvas');
+    sampleCanvas.width=portraitImage.naturalWidth;
+    sampleCanvas.height=portraitImage.naturalHeight;
+    const sampleContext=sampleCanvas.getContext('2d',{willReadFrequently:true});
+    sampleContext.drawImage(portraitImage,0,0);
+    const sampleData=sampleContext.getImageData(0,0,sampleCanvas.width,sampleCanvas.height).data;
 
     const aspect=portraitImage.naturalWidth/portraitImage.naturalHeight;
     const planeHeight=6.35;
@@ -127,10 +102,16 @@ const cursorCross = document.querySelector('.cursor-cross');
     for(let i=0;i<positions.count;i++){
       const u=clamp(uvs.getX(i),0,1);
       const v=clamp(uvs.getY(i),0,1);
-      const px=Math.min(depthCanvas.width-1,Math.round(u*(depthCanvas.width-1)));
-      const py=Math.min(depthCanvas.height-1,Math.round((1-v)*(depthCanvas.height-1)));
-      const depth=depthData[(py*depthCanvas.width+px)*4]/255;
-      positions.setZ(i,depth*.78);
+      const px=Math.min(sampleCanvas.width-1,Math.round(u*(sampleCanvas.width-1)));
+      const py=Math.min(sampleCanvas.height-1,Math.round((1-v)*(sampleCanvas.height-1)));
+      const index=(py*sampleCanvas.width+px)*4;
+      const alpha=sampleData[index+3]/255;
+      const luminance=(sampleData[index]*.2126+sampleData[index+1]*.7152+sampleData[index+2]*.0722)/255;
+      const dx=(u-.5)*2;
+      const dy=(v-.52)*2;
+      const radial=Math.max(0,1-Math.sqrt(dx*dx+dy*dy)*.66);
+      const depth=alpha*(.22+radial*.68+luminance*.10);
+      positions.setZ(i,depth*.72);
     }
     positions.needsUpdate=true;
     geometry.computeVertexNormals();
@@ -331,8 +312,6 @@ const cursorCross = document.querySelector('.cursor-cross');
       ringB.geometry.dispose();
       ringB.material.dispose();
       portraitTexture.dispose();
-      if(portraitUrl) URL.revokeObjectURL(portraitUrl);
-      if(depthUrl) URL.revokeObjectURL(depthUrl);
     },{once:true});
 
   }catch(error){
