@@ -77,8 +77,10 @@ const cursorCross = document.querySelector('.cursor-cross');
     await fallback.decode().catch(()=>{});
     stage.classList.add('is-fallback');
 
-    if(reducedMotion){
+    const forceMotion=new URLSearchParams(window.location.search).has('motion');
+    if(reducedMotion&&!forceMotion){
       loading?.classList.add('is-done');
+      stage.dataset.renderMode='reduced-motion-fallback';
       return;
     }
 
@@ -314,6 +316,7 @@ const cursorCross = document.querySelector('.cursor-cross');
 
     stage.classList.remove('is-fallback');
     stage.classList.add('is-webgl');
+    stage.dataset.renderMode='webgl-depth-mesh';
     loading?.classList.add('is-done');
     animate();
 
@@ -335,6 +338,7 @@ const cursorCross = document.querySelector('.cursor-cross');
   }catch(error){
     console.warn('Interactive portrait fallback:',error);
     stage.classList.add('is-fallback');
+    stage.dataset.renderMode=`fallback:${error?.message||'unknown'}`;
     loading?.classList.add('is-done');
 
     window.addEventListener('pointermove',(event)=>{
