@@ -7,6 +7,7 @@ const header = document.querySelector('.site-header');
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
 const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+const railLinks = [...document.querySelectorAll('.section-rail a[href^="#"]')];
 const progress = document.querySelector('.progress i');
 const cursorCross = document.querySelector('.cursor-cross');
 

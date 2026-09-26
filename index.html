@@ -74,20 +74,35 @@
     </button>
 
     <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-      <a href="#work">Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#profile">Profile</a>
-      <a href="#contact">Contact</a>
+      <a href="#home"><small>01</small><span>Home</span></a>
+      <a href="#profile"><small>02</small><span>About</span></a>
+      <a href="#experience"><small>03</small><span>Experience</span></a>
+      <a href="#work"><small>04</small><span>Projects</span></a>
+      <a href="#skills"><small>05</small><span>Skills</span></a>
+      <a href="#contact"><small>06</small><span>Contact</span></a>
     </nav>
 
     <a class="availability" href="mailto:markianqbuenzalida@gmail.com">
       <i></i>
-      <span>OPEN TO OPPORTUNITIES</span>
+      <span>LET'S WORK</span>
+      <b>↗</b>
     </a>
   </header>
 
+  <aside class="section-rail" aria-label="Section navigation">
+    <span class="rail-caption">SCROLL<br>TO<br>EXPLORE</span>
+    <nav>
+      <a href="#home" aria-current="page"><i></i><span><b>01</b>HOME</span></a>
+      <a href="#profile"><i></i><span><b>02</b>ABOUT</span></a>
+      <a href="#experience"><i></i><span><b>03</b>EXPERIENCE</span></a>
+      <a href="#work"><i></i><span><b>04</b>PROJECTS</span></a>
+      <a href="#skills"><i></i><span><b>05</b>SKILLS</span></a>
+      <a href="#contact"><i></i><span><b>06</b>CONTACT</span></a>
+    </nav>
+  </aside>
+
   <main id="main-content">
-    <section class="hero hero-portrait section-shell" aria-labelledby="hero-title">
+    <section class="hero hero-portrait section-shell" id="home" aria-labelledby="hero-title">
       <div class="hero-code reveal">
         <span>FILE / PROFILE_001</span>
         <span>VALENZUELA CITY / PH</span>
@@ -113,8 +128,14 @@
           </p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="#work">View selected work <span>↘</span></a>
-            <a class="button button-link" href="mailto:markianqbuenzalida@gmail.com">Email me <span>↗</span></a>
+            <a class="button button-primary" href="#work"><span>VIEW MY WORK</span><b>→</b></a>
+            <a class="button button-ghost" href="#profile"><span>ABOUT ME</span><b>→</b></a>
+          </div>
+
+          <div class="hero-metrics" aria-label="Portfolio summary">
+            <div><strong>05</strong><span>EXPERIENCE<br>ROLES</span></div>
+            <div><strong>02</strong><span>SELECTED<br>BUILDS</span></div>
+            <div><strong>∞</strong><span>ALWAYS<br>LEARNING</span></div>
           </div>
         </div>
 
@@ -161,21 +182,27 @@
         </div>
 
         <aside class="hero-side-notes reveal" aria-label="Professional profile summary">
-          <div class="note-block">
-            <span>01 / CORE</span>
-            <strong>Electronics Technology</strong>
+          <div class="focus-hud">
+            <div class="focus-hud-head">
+              <span><i></i> 02</span>
+              <strong>// CURRENT FOCUS</strong>
+            </div>
+            <ul>
+              <li>System development</li>
+              <li>Electronics &amp; diagnostics</li>
+              <li>Office productivity</li>
+              <li>Client coordination</li>
+              <li>Teaching &amp; documentation</li>
+            </ul>
           </div>
-          <div class="note-block">
-            <span>02 / RANGE</span>
-            <strong>Admin · Tech · Client Support</strong>
+
+          <div class="available-hud">
+            <i></i>
+            <div>
+              <span>AVAILABLE FOR</span>
+              <strong>Opportunities / Collaboration</strong>
+            </div>
           </div>
-          <div class="note-block">
-            <span>03 / BASE</span>
-            <strong>Valenzuela City, Philippines</strong>
-          </div>
-          <p class="depth-note">
-            The portrait is a 3D-anime render based on my actual photo, animated as a depth-displaced interactive mesh.
-          </p>
         </aside>
       </div>
 
@@ -445,7 +472,7 @@
       </div>
     </section>
 
-    <section class="capabilities section-shell" aria-labelledby="capabilities-title">
+    <section class="capabilities section-shell" id="skills" aria-labelledby="capabilities-title">
       <div class="section-head reveal">
         <p class="section-index">04 / CAPABILITIES</p>
         <div class="section-head-main">
