@@ -87,79 +87,102 @@
   </header>
 
   <main id="main-content">
-    <section class="hero section-shell" aria-labelledby="hero-title">
+    <section class="hero hero-portrait section-shell" aria-labelledby="hero-title">
       <div class="hero-code reveal">
         <span>FILE / PROFILE_001</span>
         <span>VALENZUELA CITY / PH</span>
         <span id="local-time">PHT</span>
       </div>
 
-      <div class="hero-stage">
-        <div class="hero-copy reveal">
-          <div class="hero-name" aria-label="Mark Ian">
-            <span class="hero-name-top">MARK</span>
-            <span class="hero-name-bottom">IAN</span>
+      <div class="hero-composition">
+        <div class="hero-backtype" aria-hidden="true">
+          <span class="backtype-mark">MARK</span>
+          <span class="backtype-ian">IAN</span>
+        </div>
+
+        <div class="hero-copy-panel reveal">
+          <p class="mono-kicker">ELECTRONICS TECHNOLOGY · CLIENT SUPPORT · OPERATIONS</p>
+          <h1 id="hero-title">
+            Technical by training.
+            <em>Practical by habit.</em>
+          </h1>
+          <p class="hero-summary">
+            I’m Mark Ian Buenzalida. I work across technical tasks, documentation,
+            client coordination, operations, and teaching—with a focus on useful,
+            accurate work that actually gets finished.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">View selected work <span>↘</span></a>
+            <a class="button button-link" href="mailto:markianqbuenzalida@gmail.com">Email me <span>↗</span></a>
+          </div>
+        </div>
+
+        <div class="portrait-shell reveal" id="portrait-shell">
+          <div class="portrait-hud portrait-hud-top">
+            <span>PORTRAIT / DEPTH MESH</span>
+            <span class="portrait-live"><i></i> INTERACTIVE</span>
           </div>
 
-          <div class="hero-role">
-            <p class="mono-kicker">TECHNICAL / ADMIN / CLIENT SUPPORT</p>
-            <h1 id="hero-title">
-              Technical by training.
-              <em>Practical by habit.</em>
-            </h1>
-            <p class="hero-summary">
-              Electronics Technology graduate with experience across client relations,
-              documentation, operations, electronics troubleshooting, and teaching.
-            </p>
+          <div class="portrait-stage" id="portrait-stage">
+            <div class="portrait-scan" aria-hidden="true"></div>
+            <div class="portrait-ring portrait-ring-a" aria-hidden="true"></div>
+            <div class="portrait-ring portrait-ring-b" aria-hidden="true"></div>
+            <div class="portrait-axis portrait-axis-x" aria-hidden="true"></div>
+            <div class="portrait-axis portrait-axis-y" aria-hidden="true"></div>
 
-            <div class="hero-actions">
-              <a class="button button-primary" href="#work">View selected work <span>↘</span></a>
-              <a class="button button-link" href="mailto:markianqbuenzalida@gmail.com">Email me <span>↗</span></a>
+            <canvas id="portrait-canvas" class="portrait-canvas" aria-hidden="true"></canvas>
+            <img id="portrait-fallback" class="portrait-fallback" alt="Mark Ian Buenzalida in formal attire" decoding="async" />
+
+            <div class="portrait-corners" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </div>
+
+            <div class="portrait-loading" id="portrait-loading" aria-live="polite">
+              <span>BUILDING DEPTH PROFILE</span>
+              <i></i>
+            </div>
+
+            <div class="portrait-instruction" aria-hidden="true">
+              <span>MOVE CURSOR</span>
+              <i></i>
+              <span>SCROLL</span>
+            </div>
+          </div>
+
+          <div class="portrait-hud portrait-hud-bottom">
+            <span>WEBGL / THREE.JS</span>
+            <div class="motion-readout" aria-hidden="true">
+              <span>RX <b data-readout="rx">00.0°</b></span>
+              <span>RY <b data-readout="ry">00.0°</b></span>
+              <span>Z <b data-readout="scroll">000</b></span>
             </div>
           </div>
         </div>
 
-        <div class="portrait-system reveal" id="portrait-system">
-          <div class="portrait-system-head">
-            <span>SUBJECT / MARK_IAN</span>
-            <span>PHOTO-DERIVED LOW-POLY MESH</span>
+        <aside class="hero-side-notes reveal" aria-label="Professional profile summary">
+          <div class="note-block">
+            <span>01 / CORE</span>
+            <strong>Electronics Technology</strong>
           </div>
-
-          <div class="portrait-viewport" id="portrait-3d" role="img" aria-label="Interactive low-poly 3D portrait of Mark Ian Buenzalida">
-            <div class="portrait-fallback" aria-hidden="true">
-              <strong>MI</strong>
-              <span>3D PORTRAIT</span>
-            </div>
+          <div class="note-block">
+            <span>02 / RANGE</span>
+            <strong>Admin · Tech · Client Support</strong>
           </div>
-
-          <div class="portrait-hud" aria-hidden="true">
-            <span class="hud hud-a">273 VERTICES</span>
-            <span class="hud hud-b">460 FACES</span>
-            <span class="hud hud-c">POINTER / SCROLL INPUT</span>
-            <span class="hud hud-d">NO CLICK REQUIRED</span>
+          <div class="note-block">
+            <span>03 / BASE</span>
+            <strong>Valenzuela City, Philippines</strong>
           </div>
-
-          <div class="portrait-reticle" aria-hidden="true"><i></i><i></i></div>
-          <div class="portrait-scan" aria-hidden="true"></div>
-
-          <div class="portrait-system-foot">
-            <div><span>INPUT</span><strong>Pointer movement</strong></div>
-            <div><span>SECONDARY</span><strong>Scroll position</strong></div>
-            <div><span>RENDER</span><strong>WebGL / Three.js</strong></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="capability-rail reveal" aria-label="Professional capability areas">
-        <span>01 / ELECTRONICS</span><i></i>
-        <span>02 / DOCUMENTS</span><i></i>
-        <span>03 / CLIENTS</span><i></i>
-        <span>04 / OPERATIONS</span><i></i>
-        <span>05 / TEACHING</span>
+          <p class="depth-note">
+            The portrait is rendered as a depth-displaced mesh generated from my actual photo.
+          </p>
+        </aside>
       </div>
 
       <div class="hero-scroll reveal" aria-hidden="true">
-        <span>SCROLL</span><i></i><span>01 / SELECTED WORK</span>
+        <span>NO CLICK REQUIRED</span>
+        <i></i>
+        <span>CURSOR + SCROLL CONTROL THE PORTRAIT</span>
       </div>
     </section>
 
