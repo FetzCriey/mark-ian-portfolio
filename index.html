@@ -14,7 +14,12 @@
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://mark-ian-portfolio.vercel.app/" />
   <meta property="og:site_name" content="Mark Ian Buenzalida — Portfolio" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://mark-ian-portfolio.vercel.app/assets/social-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mark Ian Buenzalida — technical by training, useful by design" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://mark-ian-portfolio.vercel.app/assets/social-preview.jpg" />
   <meta name="twitter:title" content="Mark Ian Buenzalida — Portfolio" />
   <meta name="twitter:description" content="Technical by training. Practical by habit. Clear with people." />
 
@@ -44,7 +49,8 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/style.css?v=20260927-portrait" />
+  <link rel="preload" as="image" href="/assets/hero-workspace.webp" />
+  <link rel="stylesheet" href="/style.css?v=20260927-improvements" />
 </head>
 
 <body>
@@ -104,7 +110,7 @@
           <p class="hero-eyebrow">ELECTRONICS TECHNOLOGY <span aria-hidden="true">╱</span></p>
           <h1 id="hero-title"><span>MARK</span><span class="hero-ian">IAN</span><span class="hero-surname">BUENZALIDA</span></h1>
           <p class="hero-tagline">Technical by training.<br><strong>Useful by design.</strong></p>
-          <p class="hero-description">I build reliable systems, work with people, and turn complex tasks into clear, practical solutions.</p>
+          <p class="hero-description">I build practical web tools and bring the same clear, organized approach to electronics, client work, and teaching.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#work"><span>VIEW MY WORK</span><b aria-hidden="true">→</b></a>
             <a class="button button-ghost" href="#contact"><span>GET IN TOUCH</span></a>
@@ -119,14 +125,117 @@
       </div>
     </section>
 
+    <section class="profile" id="profile" aria-labelledby="profile-title">
+      <div class="section-shell profile-grid">
+        <div class="profile-title reveal">
+          <p class="section-index">02 / ABOUT</p>
+          <h2 id="profile-title">
+            I work best where
+            <em>systems, details, and people</em>
+            meet.
+          </h2>
+        </div>
+
+        <div class="profile-copy reveal">
+          <p>
+            My degree is in Technical-Vocational Teacher Education, major in Electronics Technology.
+            My experience expanded that technical foundation into client coordination, office documentation,
+            records, operations, electronics repair, and classroom practice.
+          </p>
+          <p>
+            I can understand a technical task, keep information organized, explain it clearly,
+            and follow through with the people involved.
+          </p>
+        </div>
+
+        <div class="principle-stack reveal">
+          <article>
+            <span>01</span>
+            <h3>Diagnose first.</h3>
+            <p>Understand the real problem before choosing the fix.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Keep the handoff clean.</h3>
+            <p>Records and outputs should be easy for the next person to use.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Close the loop.</h3>
+            <p>Following through matters as much as starting well.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience section-shell" id="experience" aria-labelledby="experience-title">
+      <div class="section-head reveal">
+        <p class="section-index">03 / EXPERIENCE</p>
+        <div class="section-head-main">
+          <h2 id="experience-title">A working log.<br><em>Different environments.</em></h2>
+          <p>Each role has strengthened my accuracy, organization, communication, and follow-through.</p>
+        </div>
+      </div>
+
+      <div class="logbook">
+        <article class="log-row reveal">
+          <div class="log-code">LOG / 01</div>
+          <div class="log-role">
+            <h3>Client Relations Officer</h3>
+            <span>Better Practice</span>
+          </div>
+          <p>Coordinated client inquiries and document requirements, keeping records and follow-ups organized.</p>
+          <div class="log-tag">CLIENT / ADMIN</div>
+        </article>
+
+        <article class="log-row reveal">
+          <div class="log-code">LOG / 02</div>
+          <div class="log-role">
+            <h3>Practice Teacher Intern</h3>
+            <span>Lawang Bato National High School</span>
+          </div>
+          <p>Prepared lessons and materials, guided learning activities, and completed a final teaching demonstration.</p>
+          <div class="log-tag">TEACHING</div>
+        </article>
+
+        <article class="log-row reveal">
+          <div class="log-code">LOG / 03</div>
+          <div class="log-role">
+            <h3>Home-Based Electronics Technician</h3>
+            <span>Self-Employed</span>
+          </div>
+          <p>Diagnosed, repaired, and tested electronic devices, then explained the completed work to clients.</p>
+          <div class="log-tag">TECHNICAL</div>
+        </article>
+
+        <article class="log-row reveal">
+          <div class="log-code">LOG / 04</div>
+          <div class="log-role">
+            <h3>Warehouse Staff</h3>
+            <span>J&amp;T Express</span>
+          </div>
+          <p>Received, sorted, checked, and prepared parcels while maintaining orderly inventory records.</p>
+          <div class="log-tag">OPERATIONS</div>
+        </article>
+
+        <article class="log-row reveal">
+          <div class="log-code">LOG / 05</div>
+          <div class="log-role">
+            <h3>On-the-Job Trainee</h3>
+            <span>Winland Electronics &amp; Electrical Center</span>
+          </div>
+          <p>Supported data encoding, inventory checks, and daily electronics shop operations.</p>
+          <div class="log-tag">ELECTRONICS</div>
+        </article>
+      </div>
+    </section>
+
     <section class="work" id="work" aria-labelledby="work-title">
       <div class="section-shell section-head reveal">
-        <p class="section-index">01 / SELECTED WORK</p>
+        <p class="section-index">04 / SELECTED WORK</p>
         <div class="section-head-main">
-          <h2 id="work-title">Show the system.<br><em>Not just the stack.</em></h2>
-          <p>
-            I’m keeping the work section focused on real public projects and what they actually demonstrate.
-          </p>
+          <h2 id="work-title">Projects in practice.<br><em>Built to be useful.</em></h2>
+          <p>Real projects, with the problem, my work, and the code you can inspect.</p>
         </div>
       </div>
 
@@ -135,20 +244,18 @@
           <div class="project-meta reveal">
             <span class="project-id">PROJECT / 01</span>
             <h3>Staff Evaluation System</h3>
-            <p class="project-lede">
-              A browser-based performance evaluation system with login flow, evaluator controls,
-              scored criteria, calculated totals, comments, manager controls, and Supabase-connected logic.
-            </p>
+            <p class="project-lede">I built a web tool for staff reviews. Evaluators can select a staff member, score criteria, add comments, and save a review. It includes sign-in, manager controls, and database-backed records.</p>
+            <p class="project-context"><strong>My work</strong> Interface, evaluation flow, data connection, and automated load tests. The public repository contains the application and its test scripts.</p>
 
             <div class="project-data">
               <div><span>TYPE</span><strong>Web application</strong></div>
               <div><span>STACK</span><strong>HTML · CSS · JavaScript · Supabase</strong></div>
-              <div><span>TESTING</span><strong>k6 load tests · autosave · realtime</strong></div>
-              <div><span>REPOSITORY</span><strong>Public</strong></div>
+              <div><span>TESTS</span><strong>Site · autosave · realtime load scripts</strong></div>
+              <div><span>DEMO</span><strong>Sign-in required; no public demo</strong></div>
             </div>
 
             <a class="project-link" href="https://github.com/FetzCriey/staff_evaluation" target="_blank" rel="noreferrer">
-              Open repository <span>↗</span>
+              View code and tests <span>↗</span>
             </a>
           </div>
 
@@ -245,14 +352,13 @@
             <span class="project-id">PROJECT / 02</span>
             <h3>This portfolio</h3>
             <p>
-              Built as a dependency-light static site with semantic HTML, custom CSS, lightweight JavaScript,
-              responsive behavior, accessibility fallbacks, structured metadata, sitemap support, and Vercel deployment hardening.
+              I designed and built this site to present my work and experience in one place. It uses responsive layouts, clear section navigation, and accessible links, and is published from GitHub through Vercel.
             </p>
 
             <div class="secondary-notes">
               <div><span>ARCHITECTURE</span><strong>Static HTML / CSS / JavaScript</strong></div>
               <div><span>DELIVERY</span><strong>GitHub → Vercel</strong></div>
-              <div><span>PRIORITY</span><strong>Identity · speed · accessibility</strong></div>
+              <div><span>MY WORK</span><strong>Layout · content · navigation · deployment</strong></div>
             </div>
 
             <a class="project-link" href="https://github.com/FetzCriey/mark-ian-portfolio" target="_blank" rel="noreferrer">
@@ -270,119 +376,11 @@
       </div>
     </section>
 
-    <section class="experience section-shell" id="experience" aria-labelledby="experience-title">
-      <div class="section-head reveal">
-        <p class="section-index">02 / EXPERIENCE</p>
-        <div class="section-head-main">
-          <h2 id="experience-title">A working log.<br><em>Different environments.</em></h2>
-          <p>
-            The roles are different, but the useful habits repeat: accuracy, organization,
-            communication, practical problem-solving, and follow-through.
-          </p>
-        </div>
-      </div>
-
-      <div class="logbook">
-        <article class="log-row reveal">
-          <div class="log-code">LOG / 01</div>
-          <div class="log-role">
-            <h3>Client Relations Officer</h3>
-            <span>Better Practice</span>
-          </div>
-          <p>Client communication, records, document processing, data handling, and requirement follow-through.</p>
-          <div class="log-tag">CLIENT / ADMIN</div>
-        </article>
-
-        <article class="log-row reveal">
-          <div class="log-code">LOG / 02</div>
-          <div class="log-role">
-            <h3>Practice Teacher Intern</h3>
-            <span>Lawang Bato National High School</span>
-          </div>
-          <p>Lesson plans, instructional materials, classroom support, learning activities, and final teaching demonstration.</p>
-          <div class="log-tag">TEACHING</div>
-        </article>
-
-        <article class="log-row reveal">
-          <div class="log-code">LOG / 03</div>
-          <div class="log-role">
-            <h3>Home-Based Electronics Technician</h3>
-            <span>Self-Employed</span>
-          </div>
-          <p>Hands-on electronics troubleshooting and repair while diagnosing practical device and component problems.</p>
-          <div class="log-tag">TECHNICAL</div>
-        </article>
-
-        <article class="log-row reveal">
-          <div class="log-code">LOG / 04</div>
-          <div class="log-role">
-            <h3>Warehouse Staff</h3>
-            <span>J&amp;T Express</span>
-          </div>
-          <p>Fast-paced operations support involving organized handling, movement, and monitoring of items.</p>
-          <div class="log-tag">OPERATIONS</div>
-        </article>
-
-        <article class="log-row reveal">
-          <div class="log-code">LOG / 05</div>
-          <div class="log-role">
-            <h3>On-the-Job Trainee</h3>
-            <span>Winland Electronics &amp; Electrical Center</span>
-          </div>
-          <p>Practical exposure to electronics and electrical work, technical tasks, record keeping, and shop operations.</p>
-          <div class="log-tag">ELECTRONICS</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="profile" id="profile" aria-labelledby="profile-title">
-      <div class="section-shell profile-grid">
-        <div class="profile-title reveal">
-          <p class="section-index">03 / PROFILE</p>
-          <h2 id="profile-title">
-            I work best where
-            <em>systems, details, and people</em>
-            meet.
-          </h2>
-        </div>
-
-        <div class="profile-copy reveal">
-          <p>
-            My degree is in Technical-Vocational Teacher Education, major in Electronics Technology.
-            My experience expanded that technical foundation into client coordination, office documentation,
-            records, operations, electronics repair, and classroom practice.
-          </p>
-          <p>
-            I’m not trying to present myself as one narrow type of worker. The useful part is the range:
-            I can understand a technical task, keep information organized, explain things clearly, and work with people.
-          </p>
-        </div>
-
-        <div class="principle-stack reveal">
-          <article>
-            <span>01</span>
-            <h3>Diagnose first.</h3>
-            <p>Understand the real problem before choosing the fix.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Keep the handoff clean.</h3>
-            <p>Records and outputs should be easy for the next person to use.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Close the loop.</h3>
-            <p>Following through matters as much as starting well.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="capabilities section-shell" id="skills" aria-labelledby="capabilities-title">
       <div class="section-head reveal">
-        <p class="section-index">04 / CAPABILITIES</p>
+        <p class="section-index">05 / SKILLS</p>
         <div class="section-head-main">
-          <h2 id="capabilities-title">Useful skills.<br><em>No percentages.</em></h2>
+          <h2 id="capabilities-title">Useful skills.<br><em>Across roles.</em></h2>
           <p>
             These are the tools and working areas I can actually bring into a role.
           </p>
@@ -432,7 +430,7 @@
     <section class="education">
       <div class="section-shell">
         <div class="section-head reveal">
-          <p class="section-index">05 / EDUCATION</p>
+          <p class="section-index">EDUCATION</p>
           <div class="section-head-main">
             <h2>Technical roots.<br><em>Teaching foundation.</em></h2>
           </div>
@@ -484,6 +482,11 @@
         </div>
 
         <div class="contact-links">
+          <a href="/assets/Mark_Ian_Buenzalida_CV.pdf" download="Mark_Ian_Buenzalida_CV.pdf" type="application/pdf">
+            <span>CV</span>
+            <strong>Download CV (PDF)</strong>
+            <i>↓</i>
+          </a>
           <a href="mailto:markianqbuenzalida@gmail.com">
             <span>EMAIL</span>
             <strong>markianqbuenzalida@gmail.com</strong>
