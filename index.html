@@ -86,7 +86,6 @@
   </header>
 
   <aside class="section-rail" aria-label="Section navigation">
-    <span class="rail-caption">SCROLL<br>TO<br>EXPLORE</span>
     <nav>
       <a href="#home" aria-current="page"><i></i><span><b>01</b>HOME</span></a>
       <a href="#profile"><i></i><span><b>02</b>ABOUT</span></a>
@@ -98,127 +97,30 @@
   </aside>
 
   <main id="main-content">
-    <section class="hero hero-portrait section-shell" id="home" aria-labelledby="hero-title">
-      <div class="hero-code reveal">
-        <span>FILE / PROFILE_001</span>
-        <span>VALENZUELA CITY / PH</span>
-        <span id="local-time">PHT</span>
-      </div>
-
-      <div class="hero-composition">
-        <div class="hero-backtype" aria-hidden="true">
-          <span class="backtype-mark">MARK</span>
-          <span class="backtype-ian">IAN</span>
-        </div>
-
-        <div class="hero-copy-panel reveal">
-          <p class="mono-kicker">ELECTRONICS TECHNOLOGY · CLIENT SUPPORT · OPERATIONS</p>
-          <h1 id="hero-title">
-            Technical by training.
-            <em>Practical by habit.</em>
-          </h1>
-          <p class="hero-summary">
-            I’m Mark Ian Buenzalida. I work across technical tasks, documentation,
-            client coordination, operations, and teaching—with a focus on useful,
-            accurate work that actually gets finished.
-          </p>
-
+    <section class="hero hero-reference" id="home" aria-labelledby="hero-title">
+      <div class="hero-photo" role="img" aria-label="Illustrated portrait of Mark Ian at an electronics workspace"></div>
+      <div class="hero-inner section-shell">
+        <div class="hero-content reveal">
+          <p class="hero-eyebrow">ELECTRONICS TECHNOLOGY <span aria-hidden="true">╱</span></p>
+          <h1 id="hero-title"><span>MARK</span><span class="hero-ian">IAN</span><span class="hero-surname">BUENZALIDA</span></h1>
+          <p class="hero-tagline">Technical by training.<br><strong>Useful by design.</strong></p>
+          <p class="hero-description">I build reliable systems, work with people, and turn complex tasks into clear, practical solutions.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#work"><span>VIEW MY WORK</span><b>→</b></a>
+            <a class="button button-primary" href="#work"><span>VIEW MY WORK</span><b aria-hidden="true">→</b></a>
             <a class="button button-ghost" href="#contact"><span>GET IN TOUCH</span></a>
           </div>
-
           <div class="hero-metrics" aria-label="Portfolio summary">
             <div><strong>05</strong><span>EXPERIENCE<br>ROLES</span></div>
             <div><strong>02</strong><span>SELECTED<br>BUILDS</span></div>
             <div><strong>∞</strong><span>ALWAYS<br>LEARNING</span></div>
           </div>
         </div>
-
-        <div class="portrait-shell reveal" id="portrait-shell">
-          <div class="portrait-hud portrait-hud-top">
-            <span>PORTRAIT / 3D ANIME DEPTH</span>
-            <span class="portrait-live"><i></i> INTERACTIVE</span>
-          </div>
-
-          <div class="portrait-stage" id="portrait-stage">
-            <div class="portrait-scan" aria-hidden="true"></div>
-            <div class="portrait-ring portrait-ring-a" aria-hidden="true"></div>
-            <div class="portrait-ring portrait-ring-b" aria-hidden="true"></div>
-            <div class="portrait-axis portrait-axis-x" aria-hidden="true"></div>
-            <div class="portrait-axis portrait-axis-y" aria-hidden="true"></div>
-
-            <canvas id="portrait-canvas" class="portrait-canvas" aria-hidden="true"></canvas>
-            <img id="portrait-fallback" class="portrait-fallback" alt="Mark Ian Buenzalida in formal attire" decoding="async" />
-
-            <div class="portrait-corners" aria-hidden="true">
-              <i></i><i></i><i></i><i></i>
-            </div>
-
-            <div class="portrait-loading" id="portrait-loading" aria-live="polite">
-              <span>BUILDING DEPTH PROFILE</span>
-              <i></i>
-            </div>
-
-            <div class="portrait-instruction" aria-hidden="true">
-              <span>MOVE CURSOR</span>
-              <i></i>
-              <span>SCROLL</span>
-            </div>
-          </div>
-
-          <div class="portrait-hud portrait-hud-bottom">
-            <span>WEBGL / THREE.JS / ANIME</span>
-            <div class="motion-readout" aria-hidden="true">
-              <span>RX <b data-readout="rx">00.0°</b></span>
-              <span>RY <b data-readout="ry">00.0°</b></span>
-              <span>Z <b data-readout="scroll">000</b></span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="hero-side-notes reveal" aria-label="Professional profile summary">
-          <div class="focus-hud">
-            <div class="focus-hud-head">
-              <span><i></i> 02</span>
-              <strong>// CURRENT FOCUS</strong>
-            </div>
-            <ul>
-              <li>System development</li>
-              <li>Electronics &amp; diagnostics</li>
-              <li>Office productivity</li>
-              <li>Client coordination</li>
-              <li>Teaching &amp; documentation</li>
-            </ul>
-          </div>
-
-          <div class="available-hud">
-            <i></i>
-            <div>
-              <span>AVAILABLE FOR</span>
-              <strong>Opportunities / Collaboration</strong>
-            </div>
-          </div>
-
-          <div class="tools-hud" aria-label="Selected tools and systems">
-            <div class="tools-hud-head">
-              <strong>// TOOLS / SYSTEMS</strong>
-              <span>04</span>
-            </div>
-            <div class="tools-hud-grid">
-              <div><b>⌨</b><span>OFFICE</span></div>
-              <div><b>DB</b><span>SUPABASE</span></div>
-              <div><b>▤</b><span>DOCUMENTS</span></div>
-              <div><b>⌁</b><span>ELECTRONICS</span></div>
-            </div>
-          </div>
+        <aside class="hero-focus" aria-label="Current focus">
+          <strong>// CURRENT FOCUS</strong>
+          <ul><li>System development</li><li>Electronics &amp; hardware</li><li>Office productivity</li><li>Client coordination</li><li>Teaching &amp; documentation</li></ul>
         </aside>
-      </div>
-
-      <div class="hero-scroll reveal" aria-hidden="true">
-        <span>NO CLICK REQUIRED</span>
-        <i></i>
-        <span>CURSOR + SCROLL CONTROL THE PORTRAIT</span>
+        <div class="hero-tools" aria-label="Selected tools"><strong>// TOOLS</strong><div><span>⌘</span><span>▤</span><span>⌨</span><span>⌁</span></div></div>
+        <a class="hero-scroll-prompt" href="#work">SCROLL<br>TO EXPLORE <span aria-hidden="true">↓</span></a>
       </div>
     </section>
 
