@@ -38,3 +38,12 @@ PRODUCTION
 
 NOTE
 No personal portrait is included until the final transparent PNG is provided.
+
+
+INTERACTIVE 3D PORTRAIT
+- The hero portrait is a real low-poly 3D mesh derived from Mark Ian's uploaded photo.
+- The mesh uses 273 vertices and 460 triangular faces with sampled vertex colors.
+- It reacts continuously to pointer movement without requiring a click.
+- Scroll position adds a second motion layer.
+- Three.js is loaded only for the portrait and has a static fallback.
+- Reduced-motion preferences disable the animated movement.
