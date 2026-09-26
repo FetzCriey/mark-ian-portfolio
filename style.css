@@ -1704,7 +1704,7 @@ footer span:nth-child(2){text-align:center}footer a{justify-self:end}
 .hero-reference .hero-metrics strong{display:block;color:#f0e8e9;font-size:1.35rem;line-height:1.1;font-weight:600}
 .hero-reference .hero-metrics span{display:block;margin-top:6px;color:#a59c9e;font:.57rem/1.5 var(--mono);letter-spacing:.08em}
 .hero-focus,.hero-tools{position:absolute;right:6%;color:#e5dedf;background:rgba(14,16,21,.52);border:1px solid rgba(231,229,232,.23);border-radius:13px;box-shadow:0 25px 55px rgba(0,0,0,.3);backdrop-filter:blur(12px)}
-.hero-focus{top:17%;width:260px;padding:18px 22px;transform:rotate(-7deg)}
+.hero-focus{top:15%;right:0;width:245px;padding:18px 22px;transform:rotate(-5deg)}
 .hero-focus strong,.hero-tools strong{font:600 .65rem var(--mono);letter-spacing:.06em}
 .hero-focus ul{margin:13px 0 0;padding:0;list-style:none}
 .hero-focus li{font-size:.72rem;line-height:1.8;color:#d4ced0}
