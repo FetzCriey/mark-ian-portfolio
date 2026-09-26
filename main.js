@@ -455,7 +455,7 @@ initPortrait3D();
       const px=Math.min(depthCanvas.width-1,Math.round(u*(depthCanvas.width-1)));
       const py=Math.min(depthCanvas.height-1,Math.round((1-v)*(depthCanvas.height-1)));
       const depth=depthData[(py*depthCanvas.width+px)*4]/255;
-      positions.setZ(i,depth*.58);
+      positions.setZ(i,depth*.78);
     }
     positions.needsUpdate=true;
     geometry.computeVertexNormals();
@@ -614,17 +614,21 @@ initPortrait3D();
       const idleX=Math.sin(elapsed*.55)*.012;
       const idleY=Math.cos(elapsed*.42)*.014;
 
-      group.rotation.y=state.currentX*.17+idleX;
-      group.rotation.x=-state.currentY*.065+idleY-state.currentScroll*.025;
-      group.rotation.z=state.currentX*.018+state.currentScroll*.055;
-      group.position.x=state.currentX*.16;
-      group.position.y=-.06-state.currentY*.07-state.currentScroll*.34+Math.sin(elapsed*.7)*.018;
-      group.position.z=state.currentScroll*.22;
+      group.rotation.y=state.currentX*.26+state.currentScroll*.11+idleX;
+      group.rotation.x=-state.currentY*.10+idleY-state.currentScroll*.045;
+      group.rotation.z=state.currentX*.024+state.currentScroll*.07;
+      group.position.x=state.currentX*.22;
+      group.position.y=-.06-state.currentY*.10-state.currentScroll*.42+Math.sin(elapsed*.7)*.022;
+      group.position.z=state.currentScroll*.46;
 
       ringA.rotation.z=elapsed*.055+state.currentX*.08;
       ringB.rotation.z=-elapsed*.04-state.currentX*.05;
       ringA.rotation.x=.18+state.currentY*.04;
-      ringB.rotation.y=-.18+state.currentX*.035;
+      ringB.rotation.y=-.18+state.currentX*.055;
+
+      camera.position.x=state.currentX*.14;
+      camera.position.y=.05-state.currentY*.06+state.currentScroll*.08;
+      camera.lookAt(0,-.02,0);
 
       renderer.render(scene,camera);
 
