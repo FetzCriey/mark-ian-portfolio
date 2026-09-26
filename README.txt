@@ -1,25 +1,40 @@
 MARK IAN BUENZALIDA — PORTFOLIO
 
-A lightweight static portfolio built with HTML, CSS, JavaScript, and Three.js.
-
-LIVE DEPLOYMENT
-Hosted on Vercel and connected to the GitHub main branch. New commits to main trigger a new deployment automatically.
-
-FILES
-- index.html — page content and structure
-- style.css — editorial responsive design
-- main.js — navigation, reveal effects, and the interactive electronics-themed 3D scene
+Live site:
+https://mark-ian-portfolio.vercel.app/
 
 DESIGN DIRECTION
-The site combines editorial typography, asymmetrical layout, restrained motion, and one distinctive interactive 3D object. The goal is to feel personal and deliberately designed rather than template-based.
+Technical field manual × electronics instrumentation × editorial portfolio.
 
-MOBILE PERFORMANCE
-- Lower WebGL render resolution on small screens
-- Fewer 3D elements on mobile
-- No downloaded 3D models
-- Rendering pauses when the hero is off screen
-- Touch movement support
-- Reduced-motion accessibility support
+The site intentionally avoids generic dashboard cards and decorative 3D. It uses:
+- oversized editorial typography
+- IBM Plex Mono technical labels
+- Instrument Serif accents
+- one controlled signal-orange accent
+- a hand-built electronics-style capability diagram
+- an accurate workflow diagram for the public Staff Evaluation System project
+- restrained glassmorphism on navigation and high-impact surfaces only
+- responsive layouts designed separately for desktop and mobile
 
-PORTRAIT
-A transparent portrait can be added later once the final PNG is provided.
+SELECTED PUBLIC WORK
+1. Staff Evaluation System
+   https://github.com/FetzCriey/staff_evaluation
+   Public repository includes the evaluation interface, login flow, Supabase application logic, and k6 load tests for the site, autosave, and realtime behavior.
+
+2. This portfolio
+   https://github.com/FetzCriey/mark-ian-portfolio
+
+3. Hangman Game
+   https://github.com/FetzCriey/hangman
+
+PRODUCTION
+- Static HTML, CSS, and JavaScript
+- Deployed through Vercel from GitHub main
+- Semantic HTML and keyboard-safe navigation
+- Reduced-motion and reduced-transparency support
+- Canonical metadata, JSON-LD, robots.txt, sitemap.xml
+- Security headers configured in vercel.json
+- No Three.js or 3D dependency
+
+NOTE
+No personal portrait is included until the final transparent PNG is provided.
