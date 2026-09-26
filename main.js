@@ -4,7 +4,6 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
 
 const header = document.querySelector('.site-header');
-const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
 const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
 const railLinks = [...document.querySelectorAll('.section-rail a[href^="#"]')];
@@ -340,53 +339,6 @@ const cursorCross = document.querySelector('.cursor-cross');
   const allSectionLinks=[...navLinks,...railLinks];
   const sections=[...document.querySelectorAll('main section[id]')];
   const clock=document.getElementById('local-time');
-
-  const closeMenu=(restoreFocus=false)=>{
-    if(!nav?.classList.contains('open')) return;
-    nav.classList.remove('open');
-    menuButton?.setAttribute('aria-expanded','false');
-    document.body.classList.remove('menu-open');
-    if(restoreFocus) menuButton?.focus();
-  };
-
-  const openMenu=()=>{
-    if(!nav||!menuButton) return;
-    nav.classList.add('open');
-    menuButton.setAttribute('aria-expanded','true');
-    document.body.classList.add('menu-open');
-    navLinks[0]?.focus();
-  };
-
-  menuButton?.addEventListener('click',()=>{
-    nav?.classList.contains('open')?closeMenu():openMenu();
-  });
-
-  allSectionLinks.forEach(link=>{
-    link.addEventListener('click',()=>closeMenu());
-  });
-
-  document.addEventListener('pointerdown',event=>{
-    if(nav?.classList.contains('open')&&!header?.contains(event.target)) closeMenu();
-  });
-
-  document.addEventListener('keydown',event=>{
-    if(event.key==='Escape'){
-      closeMenu(true);
-      return;
-    }
-    if(event.key!=='Tab'||!nav?.classList.contains('open')) return;
-    const focusables=[menuButton,...navLinks].filter(Boolean);
-    if(!focusables.length) return;
-    const first=focusables[0];
-    const last=focusables[focusables.length-1];
-    if(event.shiftKey&&document.activeElement===first){
-      event.preventDefault();
-      last.focus();
-    }else if(!event.shiftKey&&document.activeElement===last){
-      event.preventDefault();
-      first.focus();
-    }
-  });
 
   let scrollFrame=0;
   const updateScrollUI=()=>{
