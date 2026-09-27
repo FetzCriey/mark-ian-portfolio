@@ -602,8 +602,8 @@ footer span:nth-child(2){text-align:center}footer a{justify-self:end}
   align-items:center;
   padding:0;
   color:#a9a39d;
-  font:500 .61rem var(--mono);
-  letter-spacing:.055em;
+  font:500 .73rem var(--mono);
+  letter-spacing:.03em;
   text-transform:uppercase;
   white-space:nowrap;
 }
@@ -980,3 +980,14 @@ footer span:nth-child(2){text-align:center}footer a{justify-self:end}
 @media(max-width:480px){.hero-reference .hero-metrics span{font-size:.57rem}}
 .project-context{margin:22px 0 0;padding:15px 0 15px 18px;border-left:2px solid var(--signal);color:#c6beb6;font-size:.88rem;line-height:1.65}
 .project-context strong{display:block;margin-bottom:4px;color:var(--paper);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+
+/* Readable captions and restrained paragraph widths across sections. */
+.section-index,.project-id,.capability-code,.log-code,.log-tag,.education-row time{font-size:.7rem}
+.project-data span,.secondary-notes span,.contact-links span{font-size:.68rem}
+.project-data strong,.secondary-notes strong{font-size:.76rem}
+.project-lede,.secondary-copy>p,.profile-copy p,.contact-heading>p{max-width:60ch}
+.log-row>p{max-width:65ch;font-size:.88rem;line-height:1.7}
+.principle-stack p,.education-row p,.education-row>strong{font-size:.82rem}
+.capability-column li{color:var(--muted);font-size:.86rem;line-height:1.5}
+.contact-links strong{font-size:.86rem}
+footer{font-size:.65rem}
