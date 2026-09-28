@@ -112,36 +112,45 @@ const cursorCross = document.querySelector('.cursor-cross');
 })();
 
 
-/* Lightweight scroll-linked 3D scenes for Experience.
-   Uses transforms only, runs through requestAnimationFrame, and is disabled
-   when the user requests reduced motion. */
-(function initExperienceScenes(){
-  const rows=[...document.querySelectorAll('.experience-3d')];
-  if(!rows.length) return;
+/* Large career model: one scene that changes with the experience currently being read. */
+(function initCareerModel(){
+  const scene=document.querySelector('.career-scene');
+  const steps=[...document.querySelectorAll('.career-step')];
+  const readoutIndex=document.querySelector('.career-readout span');
+  const readoutLabel=document.querySelector('.career-readout strong');
+  if(!scene||!steps.length) return;
+
+  const setActive=step=>{
+    steps.forEach(item=>item.classList.toggle('is-career-active',item===step));
+    scene.dataset.active=step.dataset.scene||'admin';
+    if(readoutIndex) readoutIndex.textContent='CAREER / '+(step.dataset.index||'01');
+    if(readoutLabel) readoutLabel.textContent=step.dataset.label||'EXPERIENCE';
+  };
 
   if(reducedMotion){
-    rows.forEach(row=>row.classList.add('is-scene-active'));
+    setActive(steps[0]);
     return;
   }
 
   let frame=0;
   const paint=()=>{
     const viewport=window.innerHeight||1;
-    rows.forEach((row,index)=>{
-      const rect=row.getBoundingClientRect();
+    let nearest=steps[0],nearestDistance=Infinity;
+    steps.forEach(step=>{
+      const rect=step.getBoundingClientRect();
       const center=rect.top+rect.height/2;
-      const normalized=Math.max(-1,Math.min(1,(center-viewport/2)/(viewport*.72)));
-      const object=row.querySelector('.experience-object');
-      if(!object) return;
-      const direction=index%2===0?1:-1;
-      const ry=26+(normalized*42*direction);
-      const rx=-16+(normalized*16);
-      const rz=-4+(normalized*7*direction);
-      object.style.setProperty('--rx',rx.toFixed(2)+'deg');
-      object.style.setProperty('--ry',ry.toFixed(2)+'deg');
-      object.style.setProperty('--rz',rz.toFixed(2)+'deg');
-      row.classList.toggle('is-scene-active',Math.abs(normalized)<.72);
+      const distance=Math.abs(center-viewport*.55);
+      if(distance<nearestDistance){nearest=step;nearestDistance=distance;}
     });
+    setActive(nearest);
+
+    const section=document.querySelector('#experience');
+    if(section){
+      const rect=section.getBoundingClientRect();
+      const travel=Math.max(rect.height-viewport,1);
+      const progress=Math.max(0,Math.min(1,-rect.top/travel));
+      scene.style.setProperty('--scene-progress',progress.toFixed(3));
+    }
     frame=0;
   };
   const requestPaint=()=>{if(!frame) frame=requestAnimationFrame(paint);};
