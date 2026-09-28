@@ -143,6 +143,11 @@ const cursorCross = document.querySelector('.cursor-cross');
       if(distance<nearestDistance){nearest=step;nearestDistance=distance;}
     });
     setActive(nearest);
+    const activeRect=nearest.getBoundingClientRect();
+    const roleStart=viewport*.82;
+    const roleEnd=viewport*.20;
+    const roleProgress=Math.max(0,Math.min(1,(roleStart-activeRect.top)/(roleStart-roleEnd)));
+    scene.style.setProperty('--role-progress',roleProgress.toFixed(3));
 
     const section=document.querySelector('#experience');
     if(section){
