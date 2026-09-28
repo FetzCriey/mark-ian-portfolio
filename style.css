@@ -1002,3 +1002,82 @@ footer{font-size:.65rem}
   .flow-line{display:none}
   .diagram-readout{position:static;grid-column:1/-1;transform:none;width:100%;text-align:left}
 }
+
+
+/* 2026-09-28 portfolio refinement: role clarity, case-study proof, accessible targets,
+   and lightweight scroll-responsive 3D experience objects. */
+.hero-roleline{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 11px;margin:18px 0 0;
+  color:#d2c9c9;font:600 .57rem/1.5 var(--mono);letter-spacing:.08em
+}
+.hero-roleline i{width:4px;height:4px;border-radius:50%;background:var(--signal);box-shadow:0 0 9px rgba(255,109,45,.65)}
+
+.site-nav a,.contact-links a,.project-link,.hero-scroll-prompt,footer a{min-height:44px}
+.project-link{padding-top:10px}
+.contact-links a{min-height:60px}
+
+.project-case-study{margin-top:28px;border-top:1px solid var(--line)}
+.project-case-study p{
+  display:grid;grid-template-columns:92px 1fr;gap:14px;margin:0;padding:14px 0;
+  border-bottom:1px solid var(--line);color:#c6beb6;font-size:.84rem;line-height:1.62
+}
+.project-case-study strong{color:var(--signal);font:600 .62rem/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.project-case-study span{display:block}
+
+.experience-3d{position:relative;isolation:isolate;padding-right:128px;overflow:hidden}
+.experience-3d::before{
+  content:"";position:absolute;right:22px;top:50%;width:96px;height:96px;border-radius:50%;
+  transform:translateY(-50%);background:radial-gradient(circle,rgba(255,109,45,.10),transparent 67%);
+  opacity:.65;pointer-events:none
+}
+.experience-object{
+  --rx:-16deg;--ry:26deg;--rz:-4deg;
+  position:absolute;z-index:-1;right:44px;top:50%;width:58px;height:58px;
+  transform-style:preserve-3d;
+  transform:translateY(-50%) perspective(500px) rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz));
+  transition:transform .16s linear,opacity .25s ease;opacity:.76;pointer-events:none
+}
+.obj-face{
+  position:absolute;inset:0;display:grid;place-items:center;border:1px solid rgba(255,109,45,.48);
+  background:rgba(17,17,17,.76);color:rgba(255,176,123,.82);backface-visibility:hidden;
+  font:600 .55rem var(--mono);letter-spacing:.08em;box-shadow:inset 0 0 18px rgba(255,109,45,.06)
+}
+.obj-front{transform:translateZ(29px)}
+.obj-back{transform:rotateY(180deg) translateZ(29px)}
+.obj-left{transform:rotateY(-90deg) translateZ(29px)}
+.obj-right{transform:rotateY(90deg) translateZ(29px)}
+.obj-top{transform:rotateX(90deg) translateZ(29px)}
+.obj-bottom{transform:rotateX(-90deg) translateZ(29px)}
+.experience-3d[data-scene="teaching"] .obj-face{border-radius:5px}
+.experience-3d[data-scene="electronics"] .experience-object{width:64px;height:46px}
+.experience-3d[data-scene="electronics"] .obj-front,
+.experience-3d[data-scene="electronics"] .obj-back{transform:translateZ(16px)}
+.experience-3d[data-scene="electronics"] .obj-back{transform:rotateY(180deg) translateZ(16px)}
+.experience-3d[data-scene="electronics"] .obj-left{width:32px;left:16px;transform:rotateY(-90deg) translateZ(32px)}
+.experience-3d[data-scene="electronics"] .obj-right{width:32px;left:16px;transform:rotateY(90deg) translateZ(32px)}
+.experience-3d[data-scene="electronics"] .obj-top,
+.experience-3d[data-scene="electronics"] .obj-bottom{height:32px;top:7px}
+.experience-3d[data-scene="electronics"] .obj-top{transform:rotateX(90deg) translateZ(23px)}
+.experience-3d[data-scene="electronics"] .obj-bottom{transform:rotateX(-90deg) translateZ(23px)}
+.experience-muted{opacity:.72}
+.experience-muted .experience-object{opacity:.48}
+.experience-muted .log-role h3{font-size:1.55rem}
+.experience-3d.is-scene-active .experience-object{opacity:1}
+
+@media(max-width:760px){
+  .hero-roleline{font-size:.52rem;gap:7px 9px}
+  .project-case-study p{grid-template-columns:1fr;gap:5px}
+  .experience-3d{padding-right:78px}
+  .experience-object{right:12px;width:46px;height:46px}
+  .obj-front{transform:translateZ(23px)}.obj-back{transform:rotateY(180deg) translateZ(23px)}
+  .obj-left{transform:rotateY(-90deg) translateZ(23px)}.obj-right{transform:rotateY(90deg) translateZ(23px)}
+  .obj-top{transform:rotateX(90deg) translateZ(23px)}.obj-bottom{transform:rotateX(-90deg) translateZ(23px)}
+  .experience-3d::before{right:-6px;width:78px;height:78px}
+}
+@media(max-width:420px){
+  .experience-3d{padding-right:64px}
+  .experience-object{right:8px;transform:translateY(-50%) scale(.82) perspective(500px) rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz))}
+}
+@media(prefers-reduced-motion:reduce){
+  .experience-object{transform:translateY(-50%) perspective(500px) rotateX(-12deg) rotateY(24deg)!important;transition:none!important}
+}
