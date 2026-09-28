@@ -301,13 +301,6 @@ body.pointer-active .cursor-cross{opacity:1}
 .secondary-copy{max-width:620px}
 .secondary-notes{margin-top:30px}
 
-.archive{
-  min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:30px;
-  color:var(--muted-2);font:500 .52rem var(--mono);letter-spacing:.08em
-}
-.archive a{display:flex;align-items:center;gap:15px;color:#c8c0b7;font-family:var(--sans);font-size:.82rem;letter-spacing:0}
-.archive a b{color:var(--muted-2);font:500 .51rem var(--mono)}.archive a i{color:var(--signal);font-style:normal}
-
 .experience,.capabilities{padding-top:140px;padding-bottom:140px}
 .logbook{border-top:1px solid var(--line)}
 .log-row{
@@ -446,9 +439,6 @@ footer span:nth-child(2){text-align:center}footer a{justify-self:end}
   .diagram-readout{width:180px}
 
   .project-secondary{padding:88px 0}.secondary-grid{grid-template-columns:1fr}.secondary-poster{min-height:500px;order:2}
-  .archive{flex-direction:column;align-items:flex-start;justify-content:center;padding-block:22px}.archive a{flex-wrap:wrap}
-  .archive a b{width:100%;margin-left:0}
-
   .experience,.capabilities{padding-top:100px;padding-bottom:100px}
   .log-row{grid-template-columns:58px 1fr;gap:14px 12px;padding:22px 0;min-height:0}.log-row>p{grid-column:2}.log-role h3{font-size:1.35rem}
   .profile{padding:100px 0}.profile-grid{grid-template-columns:1fr;gap:34px}.profile-copy{padding-top:0}
