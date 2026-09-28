@@ -110,3 +110,42 @@ const cursorCross = document.querySelector('.cursor-cross');
     setCurrent(sections[0].id);
   }
 })();
+
+
+/* Lightweight scroll-linked 3D scenes for Experience.
+   Uses transforms only, runs through requestAnimationFrame, and is disabled
+   when the user requests reduced motion. */
+(function initExperienceScenes(){
+  const rows=[...document.querySelectorAll('.experience-3d')];
+  if(!rows.length) return;
+
+  if(reducedMotion){
+    rows.forEach(row=>row.classList.add('is-scene-active'));
+    return;
+  }
+
+  let frame=0;
+  const paint=()=>{
+    const viewport=window.innerHeight||1;
+    rows.forEach((row,index)=>{
+      const rect=row.getBoundingClientRect();
+      const center=rect.top+rect.height/2;
+      const normalized=Math.max(-1,Math.min(1,(center-viewport/2)/(viewport*.72)));
+      const object=row.querySelector('.experience-object');
+      if(!object) return;
+      const direction=index%2===0?1:-1;
+      const ry=26+(normalized*42*direction);
+      const rx=-16+(normalized*16);
+      const rz=-4+(normalized*7*direction);
+      object.style.setProperty('--rx',rx.toFixed(2)+'deg');
+      object.style.setProperty('--ry',ry.toFixed(2)+'deg');
+      object.style.setProperty('--rz',rz.toFixed(2)+'deg');
+      row.classList.toggle('is-scene-active',Math.abs(normalized)<.72);
+    });
+    frame=0;
+  };
+  const requestPaint=()=>{if(!frame) frame=requestAnimationFrame(paint);};
+  paint();
+  window.addEventListener('scroll',requestPaint,{passive:true});
+  window.addEventListener('resize',requestPaint,{passive:true});
+})();
