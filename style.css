@@ -981,3 +981,24 @@ footer span:nth-child(2){text-align:center}footer a{justify-self:end}
 .capability-column li{color:var(--muted);font-size:.86rem;line-height:1.5}
 .contact-links strong{font-size:.86rem}
 footer{font-size:.65rem}
+
+/* Keep section introductions from colliding with their descriptions. */
+@media(min-width:761px){
+  .section-head-main{grid-template-columns:minmax(0,1fr);gap:22px}
+  .section-head h2{font-size:clamp(3.5rem,6.1vw,6.3rem);line-height:.98}
+  .section-head-main>p{max-width:55ch}
+}
+
+/* The side rail needs clear space outside the content column. */
+@media(max-width:1480px){.section-rail{display:none}}
+
+/* On phones the project flow reads in order as cards. */
+@media(max-width:760px){
+  .system-diagram{min-height:0}
+  .diagram-head{gap:12px;padding:12px 16px;line-height:1.5}
+  .diagram-head span:last-child{white-space:nowrap}
+  .diagram-canvas{height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:16px}
+  .flow-node{position:relative;inset:auto;width:auto;min-height:100px;padding:14px}
+  .flow-line{display:none}
+  .diagram-readout{position:static;grid-column:1/-1;transform:none;width:100%;text-align:left}
+}
