@@ -858,10 +858,8 @@ footer span:nth-child(2){text-align:center}footer a{justify-self:end}
   position:relative;isolation:isolate;min-height:850px;height:100svh;max-height:1080px;
   display:block;padding:0;overflow:hidden;background:#09090b;
 }
-.hero-photo{
-  position:absolute;inset:0;z-index:-2;
-  background:url('/assets/hero-workspace.webp') center center / cover no-repeat;
-}
+.hero-photo{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
 .hero-reference::before{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(90deg,rgba(4,4,6,.52) 0%,rgba(4,4,6,.22) 34%,transparent 68%),
@@ -933,7 +931,7 @@ footer span:nth-child(2){text-align:center}footer a{justify-self:end}
   .site-nav a{padding:0;min-height:42px;border:0;font-size:.75rem;letter-spacing:.01em;justify-content:center}
   .site-nav a::after{display:block}
   .hero-reference{height:auto;min-height:0;max-height:none;padding-top:148px;overflow:hidden}
-  .hero-photo{inset:148px 0 auto;height:440px;background-position:64% 30%;background-size:auto 440px}
+  .hero-photo{inset:148px 0 auto;height:440px}\n  .hero-photo img{width:100%;height:440px;object-fit:cover;object-position:64% 30%}
   .hero-reference::before{background:linear-gradient(0deg,#09090b 3%,transparent 40%);height:588px}
   .hero-inner{height:auto;width:calc(100% - 40px);padding-top:415px;padding-bottom:42px}
   .hero-content{position:relative;top:auto;left:auto;width:100%;max-width:580px}
@@ -953,7 +951,7 @@ footer span:nth-child(2){text-align:center}footer a{justify-self:end}
   .site-id{gap:9px}.site-id-mark{font-size:1.4rem}
   .site-id-copy strong{font-size:.46rem;letter-spacing:.04em}.site-id-copy small{font-size:.4rem}
   .availability{min-height:34px;padding:0 10px;gap:6px}.availability span{font-size:.55rem}
-  .hero-photo{height:390px;background-size:auto 390px;background-position:59% top}
+  .hero-photo{height:390px}\n  .hero-photo img{height:390px;object-position:59% top}
   .hero-inner{padding-top:355px;width:calc(100% - 32px)}
   .hero-content h1{font-size:clamp(4.8rem,25vw,7rem)}
   .hero-content h1 .hero-surname{font-size:clamp(1rem,5.1vw,1.5rem);letter-spacing:.27em}
