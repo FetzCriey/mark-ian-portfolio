@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <title>Mark Ian Buenzalida | Portfolio</title>
+  <title>Mark Ian Buenzalida | Web &amp; Technical Portfolio</title>
 
   <script type="application/ld+json">
   {
@@ -44,7 +44,7 @@
       "description":"Electronics Technology graduate with experience in client relations, documentation, technical support, operations, and teaching.",
       "sameAs":["https://github.com/FetzCriey"],
       "alumniOf":{"@type":"CollegeOrUniversity","name":"Valenzuela City Technological College"},
-      "knowsAbout":["Electronics troubleshooting","Microsoft Office","Document processing","Records management","Client relations","Technical support","Lesson planning"]
+      "knowsAbout":["HTML","CSS","JavaScript","Supabase","Git","GitHub","Web application testing","Computer troubleshooting","Electronics diagnostics","Microsoft Office","Document processing","Records management","Client relations","Technical support","Lesson planning"]
     }
   }
   </script>
@@ -75,7 +75,7 @@
       </span>
     </a>
 
-    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
       <a href="#home"><small>01</small><span>Home</span></a>
       <a href="#profile"><small>02</small><span>About</span></a>
       <a href="#experience"><small>03</small><span>Experience</span></a>
@@ -84,15 +84,20 @@
       <a href="#contact"><small>06</small><span>Contact</span></a>
     </nav>
 
-    <a class="availability" href="mailto:markianqbuenzalida@gmail.com">
-      <i></i>
-      <span>LET'S CONNECT</span>
-      <b>↗</b>
-    </a>
+    <div class="header-actions">
+      <button class="motion-toggle" type="button" aria-pressed="false" title="Pause decorative motion">
+        <span aria-hidden="true">◉</span><b>MOTION ON</b>
+      </button>
+      <a class="availability" href="mailto:markianqbuenzalida@gmail.com">
+        <i></i>
+        <span>LET'S CONNECT</span>
+        <b aria-hidden="true">↗</b>
+      </a>
+    </div>
   </header>
 
-  <aside class="section-rail" aria-label="Section navigation">
-    <nav aria-label="Section shortcuts">
+  <div class="section-rail">
+    <nav aria-label="Sections">
       <a href="#home" aria-current="page"><i></i><span><b>01</b>HOME</span></a>
       <a href="#profile"><i></i><span><b>02</b>ABOUT</span></a>
       <a href="#experience"><i></i><span><b>03</b>EXPERIENCE</span></a>
@@ -100,7 +105,7 @@
       <a href="#skills"><i></i><span><b>05</b>SKILLS</span></a>
       <a href="#contact"><i></i><span><b>06</b>CONTACT</span></a>
     </nav>
-  </aside>
+  </div>
 
   <main id="main-content">
     <section class="hero hero-reference" id="home" aria-labelledby="hero-title">
@@ -489,8 +494,8 @@
             <em>connect.</em>
           </h2>
           <p>
-            For project inquiries, collaborations, or a conversation about my work,
-            reach me below.
+            For web and technical roles, project opportunities, collaborations, or a conversation about my work,
+            reach me below. Based in Valenzuela, Philippines.
           </p>
         </div>
 
@@ -508,12 +513,12 @@
           <a href="mailto:markianqbuenzalida@gmail.com">
             <span>EMAIL</span>
             <strong>markianqbuenzalida@gmail.com</strong>
-            <i>↗</i>
+            <i aria-hidden="true">↗</i>
           </a>
           <a href="tel:+639935015771">
             <span>PHONE</span>
             <strong>0993 501 5771</strong>
-            <i>↗</i>
+            <i aria-hidden="true">↗</i>
           </a>
           <a href="https://github.com/FetzCriey" target="_blank" rel="me noreferrer">
             <span>GITHUB</span>
