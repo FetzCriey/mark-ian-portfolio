@@ -1090,3 +1090,10 @@ body.motion-paused .career-scene{--role-progress:0!important}
 @media(forced-colors:active){
   .motion-toggle{border:1px solid ButtonText!important;color:ButtonText!important;background:ButtonFace!important}
 }
+
+@media(max-width:480px){
+  .header-actions{gap:4px}
+  .availability{min-width:44px;width:44px;padding:0;justify-content:center}
+  .availability span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .availability i{display:block}
+}
