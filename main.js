@@ -163,3 +163,29 @@ const cursorCross = document.querySelector('.cursor-cross');
   window.addEventListener('scroll',requestPaint,{passive:true});
   window.addEventListener('resize',requestPaint,{passive:true});
 })();
+
+
+/* User-controlled decorative motion. Respects OS preference and remembers the choice. */
+(() => {
+  const button = document.querySelector('.motion-toggle');
+  if (!button) return;
+  const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let stored = null;
+  try { stored = localStorage.getItem('portfolio-motion'); } catch {}
+  const paused = stored === 'paused' || (stored === null && media.matches);
+
+  const apply = (isPaused, persist = false) => {
+    document.body.classList.toggle('motion-paused', isPaused);
+    button.setAttribute('aria-pressed', String(isPaused));
+    button.querySelector('b').textContent = isPaused ? 'MOTION OFF' : 'MOTION ON';
+    button.title = isPaused ? 'Resume decorative motion' : 'Pause decorative motion';
+    if (persist) {
+      try { localStorage.setItem('portfolio-motion', isPaused ? 'paused' : 'on'); } catch {}
+    }
+  };
+
+  apply(paused);
+  button.addEventListener('click', () => {
+    apply(!document.body.classList.contains('motion-paused'), true);
+  });
+})();
